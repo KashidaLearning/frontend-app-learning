@@ -514,14 +514,36 @@ footer.footer.d-flex.border-top.py-3.px-4 {
     display: none !important;
 }
 
-.d-flex.top-unit-navigation {
-  display: none !important;
+.course-wrapper main {
+  padding: 0 !important;
 }
 
 .unit-navigation {
   margin: 0 !important;
   gap: 15px;
 }
+
+@media (min-width: 830px) {
+    .unit-container {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
+
+@media (min-width: 576px) {
+ {
+        padding-left: 0 !important;
+        padding-right:0 !important;
+    }
+
+  }
+
+  .unit-container {
+    padding-bottom: 16px !important;
+}
+
+
 
 // Import component-specific sass files
 @import "courseware/course/celebration/CelebrationModal.scss";
