@@ -544,6 +544,13 @@ footer.footer.d-flex.border-top.py-3.px-4 {
 }
 
 
+#root .sequence-container .sequence {
+  border: none !important;
+}
+
+
+
+
 
 // Import component-specific sass files
 @import "courseware/course/celebration/CelebrationModal.scss";
