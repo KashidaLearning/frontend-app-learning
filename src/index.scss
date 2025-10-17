@@ -108,6 +108,8 @@
     width: 100% !important;
   }
 
+}
+
   .btn {
     flex-grow: 1;
     display: inline-flex;
@@ -548,13 +550,11 @@ footer.footer.d-flex.border-top.py-3.px-4 {
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center !important;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  background-color: #FC932A;
-  color: #0E303C;
+  background-color: #FC932A !important;
+  color: #0E303C !important;
   flex: 0 0 164px !important;  /* ensures equal width */
 }
 
