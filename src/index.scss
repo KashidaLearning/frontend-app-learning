@@ -345,22 +345,6 @@
     }
   }
 
-  .next-button {
-    flex-basis: 75%;
-
-     @media (max-width: -1 + map-get($grid-breakpoints, "sm")) {
-       flex-basis: 100%;
-     }
-  }
-
-  .previous-button {
-    flex-basis: 25%;
-
-     @media (max-width: -1 + map-get($grid-breakpoints, "sm")) {
-       flex-basis: 100%;
-     }
-  }
-}
 
 .top-unit-navigation {
   display: flex;
@@ -547,6 +531,34 @@ footer.footer.d-flex.border-top.py-3.px-4 {
 #root .sequence-container .sequence {
   border: none !important;
 }
+
+.top-unit-navigation {
+  display: none !important;
+}
+
+
+.unit-navigation .previous-button,
+.unit-navigation .next-button {
+  width: 164px;
+  height: 48px;
+  border-radius: 60px;
+  padding: 8px 16px;
+  opacity: 1;
+  border: none;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: #FC932A;
+  color: #0E303C;
+  flex: 0 0 164px !important;  /* ensures equal width */
+}
+
+
 
 
 
