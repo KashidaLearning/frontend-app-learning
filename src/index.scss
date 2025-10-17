@@ -333,6 +333,8 @@
   max-width: 640px;
   margin: 0 auto;
 
+}
+
   @media (max-width: -1 + map-get($grid-breakpoints, "sm")) {
     flex-direction: column;
     gap: $spacer;
@@ -557,8 +559,6 @@ footer.footer.d-flex.border-top.py-3.px-4 {
   color: #0E303C !important;
   flex: 0 0 164px !important;
 }
-
-
 
 
 
