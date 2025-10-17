@@ -333,8 +333,6 @@
   max-width: 640px;
   margin: 0 auto;
 
-}
-
   @media (max-width: -1 + map-get($grid-breakpoints, "sm")) {
     flex-direction: column;
     gap: $spacer;
@@ -348,6 +346,8 @@
       border-radius: 6px;
     }
   }
+
+}
 
 
 .top-unit-navigation {
