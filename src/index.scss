@@ -536,7 +536,7 @@ footer.footer.d-flex.border-top.py-3.px-4 {
   border: none !important;
 }
 
-.top-unit-navigation {
+.d-flex .top-unit-navigation {
   display: none !important;
 }
 
@@ -560,7 +560,10 @@ footer.footer.d-flex.border-top.py-3.px-4 {
   flex: 0 0 164px !important;
 }
 
-
+.pgn__icon .btn-icon-before ,
+.pgn__icon .btn-icon-after {
+  display: none !important;
+}
 
 
 
