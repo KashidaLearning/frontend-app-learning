@@ -564,7 +564,7 @@ footer.footer.d-flex.border-top.py-3.px-4 {
 .d-flex .unit-navigation {
     position: fixed !important;
     bottom: 30px !important;
-    right: 50px !important;
+    right: 40px !important;
 }
 
 .unit-navigation .btn-icon-before,
@@ -576,6 +576,25 @@ footer.footer.d-flex.border-top.py-3.px-4 {
 .pgn__icon .btn-icon-after {
   display: none !important;
 }
+
+#root .sequence-container .sequence .unit-navigation{
+    max-width: 100% !important;
+}
+
+.unit span.d-flex.align-items-center.justify-content-center {
+  display: none !important;
+}
+
+.unit .pgn__stateful-btn {
+  display: none !important;
+}
+
+.unit button.pgn__stateful-btn {
+  display: none !important;
+}
+
+
+
 
 
 // Import component-specific sass files
