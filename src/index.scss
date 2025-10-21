@@ -567,6 +567,11 @@ footer.footer.d-flex.border-top.py-3.px-4 {
     bottom: 30px !important;
 }
 
+.unit-navigation .btn-icon-before,
+.unit-navigation .btn-icon-after {
+  display: none !important;
+}
+
 
 .pgn__icon .btn-icon-before ,
 .pgn__icon .btn-icon-after {
