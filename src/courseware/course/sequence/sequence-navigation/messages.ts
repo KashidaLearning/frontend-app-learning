@@ -3,7 +3,7 @@ import { defineMessages } from '@edx/frontend-platform/i18n';
 const messages = defineMessages({
   nextButton: {
     id: 'learn.sequence.navigation.next.button',
-    defaultMessage: 'Next',
+    defaultMessage: 'التالي',
     description: 'Button to advance to the next section',
   },
   nextUpButton: {
@@ -13,7 +13,7 @@ const messages = defineMessages({
   },
   previousButton: {
     id: 'learn.sequence.navigation.previous.button',
-    defaultMessage: 'Previous',
+    defaultMessage: 'السابق',
     description: 'Button to return to the previous section',
   },
 });
