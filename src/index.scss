@@ -594,12 +594,12 @@ footer.footer.d-flex.border-top.py-3.px-4 {
 }
 
 .unit .d-flex.justify-content-between .mb-0 .h3 {
-  padding-right: 20px !important;
+  display: none !important;
 }
 
-
-
-
+.sequence .unit-container.pt-4 {
+  padding-top: 0 !important;
+}
 
 // Import component-specific sass files
 @import "courseware/course/celebration/CelebrationModal.scss";
