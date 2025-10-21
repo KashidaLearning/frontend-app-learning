@@ -560,6 +560,14 @@ footer.footer.d-flex.border-top.py-3.px-4 {
   flex: 0 0 164px !important;
 }
 
+
+.d-flex .unit-navigation {
+    position: fixed !important;
+    left: 50px !important;
+    bottom: 30px !important;
+}
+
+
 .pgn__icon .btn-icon-before ,
 .pgn__icon .btn-icon-after {
   display: none !important;
