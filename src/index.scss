@@ -555,8 +555,8 @@ footer.footer.d-flex.border-top.py-3.px-4 {
   display: flex;
   align-items: center;
   justify-content: center !important;
-  background-color: #FC932A !important;
-  color: #0E303C !important;
+  background-color: #110D7C !important;
+  color: #FFFFFF !important;
   flex: 0 0 164px !important;
 }
 
@@ -565,16 +565,6 @@ footer.footer.d-flex.border-top.py-3.px-4 {
     position: fixed !important;
     bottom: 30px !important;
     right: 40px !important;
-}
-
-.unit-navigation .btn-icon-before,
-.unit-navigation .btn-icon-after {
-  display: none !important;
-}
-
-.pgn__icon .btn-icon-before ,
-.pgn__icon .btn-icon-after {
-  display: none !important;
 }
 
 #root .sequence-container .sequence .unit-navigation{
@@ -604,7 +594,7 @@ footer.footer.d-flex.border-top.py-3.px-4 {
 
 body {
   background-color: unset !important;
-backdrop-filter: blur(10px) !important;
+backdrop-filter: blur(30px) !important;
 background: #ffffff00 !important;
 border: 1px solid rgba(255, 255, 255, .22) !important;
 box-shadow: 0 12px 32px rgba(0, 0, 0, .25), 0 0 40px rgba(120, 190, 255, .25) inset !important;
