@@ -563,8 +563,13 @@ footer.footer.d-flex.border-top.py-3.px-4 {
 
 .d-flex .unit-navigation {
     position: fixed !important;
-    bottom: 30px !important;
-    right: 40px !important;
+    display: flex;
+    justify-content: flex-end;
+    background-color: #416A9E;
+    padding: 8px 16px;
+    width: 100%;
+    height: 79px;
+    align-items: center;
 }
 
 #root .sequence-container .sequence .unit-navigation{
@@ -598,6 +603,10 @@ backdrop-filter: blur(30px) !important;
 background: #ffffff00 !important;
 border: 1px solid rgba(255, 255, 255, .22) !important;
 box-shadow: 0 12px 32px rgba(0, 0, 0, .25), 0 0 40px rgba(120, 190, 255, .25) inset !important;
+}
+
+#main-content.container-xl {
+    width: 1300px !important;
 }
 
 // Import component-specific sass files
