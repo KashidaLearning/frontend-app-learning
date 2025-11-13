@@ -561,10 +561,49 @@ footer.footer.d-flex.border-top.py-3.px-4 {
 }
 
 
-.d-flex .unit-navigation {
+/* Tablet (below 992px) */
+@media (max-width: 992px) {
+  .unit-navigation {
+    height: 65px;
+    padding: 6px 12px;
+  }
+
+  .unit-navigation .previous-button,
+  .unit-navigation .next-button {
+    width: 140px !important;
+    height: 42px !important;
+    font-size: 15px !important;
+  }
+}
+
+/* Mobile (below 768px) */
+@media (max-width: 768px) {
+  .unit-navigation {
+    height: auto;
+    padding: 8px;
+    justify-content: center !important;
+    flex-wrap: wrap;
+    box-shadow: none;
+    flex-direction: row;
+  }
+
+  .unit-navigation .previous-button,
+  .unit-navigation .next-button {
+    max-width: 100px !important;
+    height: 40px !important;
+    font-size: 12px !important;
+    border-radius: 40px !important;
+    padding: 6px 10px !important;
+    margin: 4px !important;
+  }
+}
+
+
+
+.unit-navigation {
     position: fixed !important;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     background-color: #416A9E;
     padding: 8px 16px;
     width: 100%;
@@ -573,6 +612,7 @@ footer.footer.d-flex.border-top.py-3.px-4 {
     box-shadow: 4px 4px 16px 6px #00000040 inset,
             0px 4px 4px 2px #FFFFFF26;
 }
+
 
 #root .sequence-container .sequence .unit-navigation{
     max-width: 100% !important;
@@ -611,6 +651,14 @@ box-shadow: 0 12px 32px rgba(0, 0, 0, .25), 0 0 40px rgba(120, 190, 255, .25) in
   overflow-x: hidden !important; /* hides horizontal scroll */
 }
 
+.unit-navigation {
+    display: flex;
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 15px;
+    position: sticky !important;
+    bottom: 0;
+}
 
 
 
