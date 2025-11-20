@@ -458,6 +458,41 @@
   }
 }
 
+//Custom styles
+#courseTabsNavigation {
+    display: none;
+}
+
+.position-relative.d-flex.align-items-xl-center.mb-4.mt-1.flex-column.flex-xl-row {
+    display: none !important;
+}
+
+.sequence {
+    border: none !important;
+}
+
+.outline-sidebar-heading-wrapper.sticky {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border: 2px solid #1C104B;
+    background-color: #ECFFFE !important;
+}
+
+.pgn-transition-replace-group.position-relative {
+    border: 2px solid #C1CED4 !important;
+}
+
+.collapsible-trigger {
+    border: 2px solid #C1CED4 !important;
+}
+
+
+
+
+
+
+
+
 // Import component-specific sass files
 @import "courseware/course/celebration/CelebrationModal.scss";
 @import "courseware/course/sidebar/sidebars/discussions/Discussions.scss";
