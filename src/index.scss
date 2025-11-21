@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "GE Dinar One";
+  src: url("./fonts/GE-Dinar-One-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
 @import "~@edx/brand/paragon/fonts";
 @import "~@edx/brand/paragon/variables";
 @import "~@openedx/paragon/scss/core/core";
@@ -7,7 +14,13 @@
 @import "~@edx/frontend-component-header/dist/index";
 
 
-#root {
+// Apply GE Dinar One when the page is RTL
+html[dir="rtl"], body[dir="rtl"] {
+  font-family: "GE Dinar One", sans-serif !important;
+}
+
+
+#root > div{
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -15,6 +28,8 @@
   main {
     flex-grow: 1;
   }
+
+  
 
   header {
     flex: 0 0 auto;
@@ -512,9 +527,11 @@ main.d-flex.flex-column.flex-grow-1 {
    border-top: 2px solid #C1CED4 !important;
 }
 
+/*
 .list-unstyled {
    border-top: 2px solid #C1CED4 !important;
 }
+   */
 
 .btn-icon.btn-icon-primary, .btn-icon.btn-icon-primary:hover {
     background: none !important;
@@ -554,8 +571,8 @@ main.d-flex.flex-column.flex-grow-1 {
     align-items: center;
     justify-content: center;
 
-    background-color: #1B1650 !important;
-    border-color: #1B1650 !important;
+    background-color: #1C104B !important;
+    border-color: #1C104B !important;
     color: #fff !important;
 
     font-size: 0 !important;     /* hide text */
@@ -573,13 +590,13 @@ main.d-flex.flex-column.flex-grow-1 {
   .next-button svg {
     width: 24px;
     height: 23px;
-    transform: scale(1.5);
+    transform: scale(2.0);
   }
 
-  /* Hover / focus / disabled states */
+
   .previous-button:hover,
   .next-button:hover {
-    background-color: #140f3a; // slightly darker
+    background-color: #140f3a;
     border-color: #140f3a;
     text-decoration: none;
   }
@@ -597,7 +614,34 @@ main.d-flex.flex-column.flex-grow-1 {
   }
 }
 
+.pgn__icon.btn-icon__icon svg {
+  color: #3A2E69;
+}
 
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: 'GE Dinar One', sans-serif !important;
+  color: #1C104B !important;
+}
+
+.text-primary-500 {
+  color: #00B2AB !important;
+  font-family: 'GE Dinar One', sans-serif !important;
+}
+
+.text-icon-300 {
+  color: #1C104B !important;
+}
+
+.text-gray-700
+  {
+   font-family: 'GE Dinar One', sans-serif !important;
+    color: #1C104B !important;
+  }
+
+  #courseHome-outline {
+  font-family: "GE Dinar One", sans-serif !important;
+  color: #1C104B !important;
+}
 
 
 

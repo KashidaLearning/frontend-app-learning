@@ -12,7 +12,7 @@ const CompletionIcon = ({ completionStat: { completed = 0, total = 0 } }) => {
 
   switch (true) {
     case !completed:
-      return <LmsCompletionSolidIcon className="text-gray-300" data-testid="completion-solid-icon" />;
+      return <LmsCompletionSolidIcon className="text-icon-300" data-testid="completion-solid-icon" />;
     case completed === total:
       return <CheckCircleIcon className="text-success" data-testid="check-circle-icon" />;
     default:
