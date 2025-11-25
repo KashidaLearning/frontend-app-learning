@@ -516,6 +516,7 @@ html[dir="rtl"], body[dir="rtl"] {
 
 main.d-flex.flex-column.flex-grow-1 {
     margin-top: 100px;
+    min-height: 800px ;
 }
 
 .outline-sidebar-heading-wrapper .outline-sidebar-heading {
@@ -534,7 +535,7 @@ main.d-flex.flex-column.flex-grow-1 {
    */
 
 .btn-icon.btn-icon-primary, .btn-icon.btn-icon-primary:hover {
-    background: none !important;
+    background: #ffffff !important;
 }
 
 .outline-sidebar-heading-wrapper.collapsed {
@@ -641,6 +642,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   #courseHome-outline {
   font-family: "GE Dinar One", sans-serif !important;
   color: #1C104B !important;
+}
+
+.outline-sidebar-wrapper {
+  width: 25.125rem !important;
 }
 
 
