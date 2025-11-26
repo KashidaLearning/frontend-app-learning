@@ -474,9 +474,6 @@ html[dir="rtl"], body[dir="rtl"] {
 }
 
 //Custom styles
-#courseTabsNavigation {
-    display: none;
-}
 
 .position-relative.d-flex.align-items-xl-center.mb-4.mt-1.flex-column.flex-xl-row {
     display: none !important;
@@ -533,10 +530,6 @@ main.d-flex.flex-column.flex-grow-1 {
    border-top: 2px solid #C1CED4 !important;
 }
    */
-
-.btn-icon.btn-icon-primary, .btn-icon.btn-icon-primary:hover {
-    background: #ffffff !important;
-}
 
 .outline-sidebar-heading-wrapper.collapsed {
     border-radius: 20px !important;
