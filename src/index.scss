@@ -543,9 +543,9 @@ footer.footer.d-flex.border-top.py-3.px-4 {
 
 .unit-navigation .previous-button,
 .unit-navigation .next-button {
-  width: 164px;
-  height: 48px;
-  border-radius: 60px;
+  width: 130px;
+  height: 47px;
+  border-radius: 56px;
   padding: 8px 16px;
   opacity: 1;
   border: none;
@@ -555,9 +555,13 @@ footer.footer.d-flex.border-top.py-3.px-4 {
   display: flex;
   align-items: center;
   justify-content: center !important;
-  background-color: #110D7C !important;
+  background-color: #416A9E !important;
   color: #FFFFFF !important;
   flex: 0 0 164px !important;
+  box-shadow:
+    4.88px 4.88px 14.63px 0px #221A372E,
+    -4.88px -4.88px 14.63px 0px #FFFFFF1F,
+    0px 2.83px 2.83px 0px #00000040;
 }
 
 
