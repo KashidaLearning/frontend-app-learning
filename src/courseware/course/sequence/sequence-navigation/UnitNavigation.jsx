@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import { useIntl } from '@edx/frontend-platform/i18n';
 
 import { GetCourseExitNavigation } from '../../course-exit';
-
 import { useSequenceNavigationMetadata } from './hooks';
 import messages from './messages';
 import PreviousButton from './generic/PreviousButton';
@@ -21,9 +20,7 @@ const UnitNavigation = ({
   courseId,
 }) => {
   const intl = useIntl();
-  const {
-    isFirstUnit, isLastUnit, nextLink, previousLink,
-  } = useSequenceNavigationMetadata(sequenceId, unitId);
+  const { isFirstUnit, isLastUnit, nextLink, previousLink } = useSequenceNavigationMetadata(sequenceId, unitId);
 
   const renderPreviousButton = () => {
     const buttonStyle = `previous-button ${isAtTop ? 'text-dark mr-3' : 'justify-content-center'}`;
@@ -99,7 +96,34 @@ const UnitNavigation = ({
     );
   }
 
+<<<<<<< HEAD
  // Top navigation renders normally
+=======
+  // ✅ Bottom navigation portal
+  if (!isAtTop) {
+    return ReactDOM.createPortal(
+      <div
+        className="unit-navigation d-flex"
+        style={{
+          position: 'fixed',
+          bottom: 0,
+          left: 0,
+          width: '100%',
+          zIndex: 1100,
+          padding: '0.75rem 1rem',
+          display: 'flex',
+          alignItems: 'center',
+        }}
+      >
+        {renderPreviousButton()}
+        {renderNextButton()}
+      </div>,
+      document.body
+    );
+  }
+
+  // Top navigation renders normally
+>>>>>>> 17c5eab7 (updating navigation buttons)
   return (
     <div className={classNames('d-flex', { 'top-unit-navigation': isAtTop })}>
       {renderPreviousButton()}

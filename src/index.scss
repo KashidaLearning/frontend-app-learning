@@ -566,9 +566,20 @@ footer.footer.d-flex.border-top.py-3.px-4 {
     4.88px 4.88px 14.63px 0px #221A372E,
     -4.88px -4.88px 14.63px 0px #FFFFFF1F,
     0px 2.83px 2.83px 0px #00000040;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 17c5eab7 (updating navigation buttons)
 }
 
+/* ✅ Tablet (below 992px) */
+@media (max-width: 992px) {
+  .unit-navigation {
+    height: 65px;
+    padding: 6px 12px;
+  }
 
+<<<<<<< HEAD
 /* Tablet (below 992px) */
 @media (max-width: 992px) {
   .unit-navigation {
@@ -576,6 +587,8 @@ footer.footer.d-flex.border-top.py-3.px-4 {
     padding: 6px 12px;
   }
 
+=======
+>>>>>>> 17c5eab7 (updating navigation buttons)
   .unit-navigation .previous-button,
   .unit-navigation .next-button {
     width: 140px !important;
@@ -584,7 +597,11 @@ footer.footer.d-flex.border-top.py-3.px-4 {
   }
 }
 
+<<<<<<< HEAD
 /* Mobile (below 768px) */
+=======
+/* ✅ Mobile (below 768px) */
+>>>>>>> 17c5eab7 (updating navigation buttons)
 @media (max-width: 768px) {
   .unit-navigation {
     height: auto;
@@ -606,12 +623,15 @@ footer.footer.d-flex.border-top.py-3.px-4 {
   }
 }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 17c5eab7 (updating navigation buttons)
 .unit-navigation {
     position: fixed !important;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     background-color: #416A9E;
     padding: 8px 16px;
     width: 100%;
@@ -666,6 +686,18 @@ box-shadow: 0 12px 32px rgba(0, 0, 0, .25), 0 0 40px rgba(120, 190, 255, .25) in
     padding: 15px;
     bottom: 0;
 }
+
+ 
+.unit-navigation {
+    display: flex;
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 15px;
+    position: sticky !important;
+    bottom: 0;
+}
+ 
+
 
 
 
