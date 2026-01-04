@@ -579,7 +579,6 @@ footer.footer.d-flex.border-top.py-3.px-4 {
     padding: 6px 12px;
   }
 
-<<<<<<< HEAD
 /* Tablet (below 992px) */
 @media (max-width: 992px) {
   .unit-navigation {
@@ -587,8 +586,6 @@ footer.footer.d-flex.border-top.py-3.px-4 {
     padding: 6px 12px;
   }
 
-=======
->>>>>>> 17c5eab7 (updating navigation buttons)
   .unit-navigation .previous-button,
   .unit-navigation .next-button {
     width: 140px !important;
@@ -597,11 +594,7 @@ footer.footer.d-flex.border-top.py-3.px-4 {
   }
 }
 
-<<<<<<< HEAD
 /* Mobile (below 768px) */
-=======
-/* ✅ Mobile (below 768px) */
->>>>>>> 17c5eab7 (updating navigation buttons)
 @media (max-width: 768px) {
   .unit-navigation {
     height: auto;
@@ -623,11 +616,8 @@ footer.footer.d-flex.border-top.py-3.px-4 {
   }
 }
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 17c5eab7 (updating navigation buttons)
 .unit-navigation {
     position: fixed;
     display: flex;
@@ -696,15 +686,15 @@ box-shadow: 0 12px 32px rgba(0, 0, 0, .25), 0 0 40px rgba(120, 190, 255, .25) in
     position: sticky !important;
     bottom: 0;
 }
+ 
 
 @media (min-width: 768px) {
-  .unit-navigation {
+  .unit-navigation--bottom {
     position: sticky;
     top: 0;
     bottom: auto;
   }
 }
-
 
 
 
