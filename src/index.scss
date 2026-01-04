@@ -629,7 +629,7 @@ footer.footer.d-flex.border-top.py-3.px-4 {
 =======
 >>>>>>> 17c5eab7 (updating navigation buttons)
 .unit-navigation {
-    position: fixed !important;
+    position: fixed;
     display: flex;
     justify-content: flex-start;
     background-color: #416A9E;
@@ -696,7 +696,14 @@ box-shadow: 0 12px 32px rgba(0, 0, 0, .25), 0 0 40px rgba(120, 190, 255, .25) in
     position: sticky !important;
     bottom: 0;
 }
- 
+
+@media (min-width: 768px) {
+  .unit-navigation {
+    position: sticky;
+    top: 0;
+    bottom: auto;
+  }
+}
 
 
 

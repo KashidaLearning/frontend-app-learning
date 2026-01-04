@@ -105,7 +105,6 @@ const UnitNavigation = ({
       <div
         className="unit-navigation d-flex"
         style={{
-          position: 'fixed',
           bottom: 0,
           left: 0,
           width: '100%',
