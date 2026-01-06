@@ -598,7 +598,7 @@ footer.footer.d-flex.border-top.py-3.px-4 {
     height: auto;
     padding: 8px;
     justify-content: center !important;
-    flex-wrap: wrap;
+    gap: unset !important;
     box-shadow: none;
     flex-direction: row;
   }
