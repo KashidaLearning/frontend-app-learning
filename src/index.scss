@@ -447,7 +447,343 @@
     }
   }
 }
+/* ------------------------------
+   Karaneef Branding Overrides
+--------------------------------*/
 
+.container-xl.py-2.d-flex.align-items-center {
+    background-color: #0A2940;
+}
+/* === KARANEEF HEADER OVERRIDE === */
+
+.learning-header {
+  background-color: #0A2940 !important;
+}
+.learning-header  a {
+  color: #ffffff !important;
+  font-weight: 500;
+}
+
+.learning-header a:hover {
+  color: #38BDF8 !important;
+}
+
+/* Make nav links white */
+.learning-header a {
+  color: #ffffff !important;
+}
+
+/* Style primary buttons (Studio / etc) */
+.learning-header .btn-primary {
+  background-color: #FFF9F1 !important;
+  border-color: #FFF9F1 !important;
+  color: #000 !important;
+}
+
+/* Page background */
+body {
+  background-color: #FFF9F1;
+}
+
+
+button.dropdown-toggle.btn.btn-outline-primary {
+    color: white;
+    border-color: white;
+}
+span.d-block.small.m-0 {
+    color: white;
+}
+span.d-block.m-0.font-weight-bold.course-title {
+    color: white;
+}
+a.row.w-100.m-0.d-flex.align-items-center.text-gray-700 {
+        background: white;
+    border-radius: 10px;
+    border-bottom: 2px solid #D4A95A;
+    margin-bottom: 6px !important;
+        margin-top: 6px !important;
+}
+.border-light {
+    border:none !important;
+        margin-bottom: 6px;
+}
+.bg-info-100 {
+    background:none;
+}
+#outline-sidebar-outline .collapsible-body ol li > a:hover {
+    background-color: #44C8CC !important;
+}
+.pgn_collapsible.mb-2.active-section.collapsible-card-lg.text-break.is-open {
+    margin-top: 6px;
+    justify-content: space-between;
+    background: #F6EFE5;
+    border: 3px solid #D4A95A;
+    border-radius: 17px;
+    transition: all 0.25s ease;
+}
+button.outline-sidebar-heading.p-0.mb-0.text-left.text-dark-500.btn.btn-link {
+
+    font-size: 18px;
+    color: white !important;
+}
+.collapsible-trigger {
+    height: 73px !important;
+    margin-top: 6px !important;
+    justify-content: space-between !important;
+   background: white !important;
+    border: 3px solid #D4A95A !important;
+    border-radius: 17px !important;
+}
+.outline-sidebar-heading-wrapper {
+     border: none !important;
+}
+.card, .collapsible-card, .collapsible-card-lg{
+  border:none !important
+}
+.course-sidebar-section {
+  border: none !important;
+    margin-top: 6px;
+    background: white !important;
+    border: 3px solid #D4A95A !important;
+    border-radius: 4px !important;
+    transition: all 0.25s ease;
+}
+.bg-light-200 {
+    background-color: #326A73 !important;
+  border-radius: 50px 50px 0 0; 
+  padding: 15px 30px;
+      color: white !important;
+}
+.bg-info-100 {
+    background-color: white !important;
+}
+
+.sequence.w-100 {
+    border: none;
+}
+span.outline-sidebar-heading.mb-0.h4.text-dark-500 {
+    color: white !important;
+}
+.text-dark-500 {
+    color: #0A2940 !important;
+    font-weight: 500;
+}
+span.align-middle {
+    color: #0A2940 !important;
+    font-weight: 500;
+}
+.outline-sidebar-heading-wrapper.sticky {
+     position:initial !important;
+}
+button.btn-icon.btn-icon-primary.btn-icon-md.previous-button.text-dark.mr-3.icon-hover {
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%230A2940' d='M70 20 Q50 50 70 80 L30 50 Z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 44px; /* Matches the size in your inspector */
+    height: 44px;
+}
+button.btn-icon.btn-icon-primary.btn-icon-md.next-button.text-dark.icon-hover {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%230A2940' d='M30 20 Q50 50 30 80 L70 50 Z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 44px;
+    height: 44px;
+}
+
+
+previous-button .fa, .previous-button svg,
+.next-button .fa, .next-button svg {
+    display: none !important;
+}
+
+
+/* 1. Transform the buttons into dark circles and hide text */
+a.previous-button.justify-content-center.btn.btn-outline-secondary,
+a.next-button.justify-content-center.btn.btn-outline-primary {
+       width: 68px !important;
+    height: 68px !important;
+    border-radius: 50% !important;
+    background-color: #0A2940 !important; /* The dark navy from your design */
+    border: none !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    text-indent: -9999px; /* Hides the "Previous" and "Next" text */
+    overflow: hidden;
+    position: relative;
+}
+
+/* 2. Hide any default icons (FontAwesome/SVG) inside the links */
+a.previous-button.btn svg, 
+a.next-button.btn svg {
+    display: none !important;
+}
+
+/* 3. Create the white curved arrows using an SVG mask */
+a.previous-button::after, 
+a.next-button::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 31px;
+    height: 35px;
+    background-color: #FFFFFF; /* Arrow color */
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+}
+
+/* 4. The "Crescent Left" Path for Previous */
+a.previous-button::after {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M70 10 Q45 50 70 90 L20 50 Z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M70 10 Q45 50 70 90 L20 50 Z'/%3E%3C/svg%3E");
+}
+
+/* 5. The "Crescent Right" Path for Next */
+a.next-button::after {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M30 10 Q55 50 30 90 L80 50 Z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M30 10 Q55 50 30 90 L80 50 Z'/%3E%3C/svg%3E");
+}
+
+/* 6. Hover effect for interaction */
+a.previous-button:hover, 
+a.next-button:hover {
+    background-color: #1a4a6e !important;
+    opacity: 0.9;
+}
+.btn.disabled, 
+.btn:disabled {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    background-color: #0A2940 !important; /* Keep the dark navy color */
+    border: none !important;
+    opacity: 0.4 !important; /* Make it look faded/disabled */
+    cursor: not-allowed !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    text-indent: -9999px;
+    position: relative;
+    overflow: hidden;
+    padding: 0 !important;
+}
+
+/* 2. Ensure the crescent icon remains visible but faded in disabled state */
+.btn:disabled::after {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background-color: #FFFFFF !important; /* Keep the icon white */
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+}
+
+/* 3. Re-apply the specific masks for Previous/Next within the disabled state */
+button.previous-button:disabled::after {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M70 10 Q45 50 70 90 L25 50 Z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M70 10 Q45 50 70 90 L25 50 Z'/%3E%3C/svg%3E");
+}
+
+button.next-button:disabled::after {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M30 10 Q55 50 30 90 L75 50 Z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M30 10 Q55 50 30 90 L75 50 Z'/%3E%3C/svg%3E");
+}
+
+header.learning-header {
+    padding-bottom: 20px;
+}
+footer.footer.d-flex.border-top.py-3.px-4 {
+    background-color: #0A2940 !important;
+}
+.header-logo img, .logo img {
+    content: url("https://karaneef.kashida-learning.co/asset-v1:bau+cs112+cs1234+type@asset+block@logo.png") !important;
+      height: 63px !important;
+    width: 100% !important;
+}
+.container-xl.py-2.d-flex.align-items-center {
+    max-width: 1440px;
+}
+.flex-grow-1.course-title-lockup.d-flex {
+    padding-top: 18px;
+}
+button.dropdown-toggle.btn.btn-outline-primary{
+    background-color: #E3C59E !important;
+    color: #0A2940 !important;
+    font-weight: bold;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    clip-path: polygon(0% 0%, 100% 0%, 100% 25%, 100% 100%, 0% 100%);
+}
+
+button.dropdown-toggle.btn.btn-outline-primary::before {
+    content: "";
+    position: absolute;
+    top: -6px;           /* move slightly up */
+    right: -10px;         /* move slightly right */
+    width: 45%;
+    height: 120%;
+    background: #ffffff;
+
+    border-radius: 0 0 0 100%;
+    z-index: 1;
+}
+
+button.dropdown-toggle.btn.btn-outline-primary span {
+    position: relative;
+    z-index: 2;
+}
+/* 1. Hide original paths AND reset the SVG container */
+.outline-sidebar-outline svg[data-testid*="-icon"] {
+    fill: none !important;
+    stroke: none !important;
+    border: none !important; /* Removes the grey circle seen in your screenshot */
+}
+
+.outline-sidebar-outline svg[data-testid*="-icon"] path {
+    display: none !important;
+}
+
+/* 2. Global icon sizing */
+.outline-sidebar-outline svg[data-testid*="-icon"] {
+    width: 28px !important;
+    height: 28px !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+}
+
+svg[data-testid="completion-solid-icon"] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='3' y='10' width='4' height='10' rx='1' fill='%23F4B400'/%3E%3Crect x='10' y='5' width='4' height='15' rx='1' fill='%23F4B400'/%3E%3Crect x='17' y='13' width='4' height='7' rx='1' fill='%23F4B400'/%3E%3C/svg%3E") !important;
+}
+
+svg[data-testid="unit-icon"] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23F4B400' d='M12 2a7 7 0 00-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 001 1h6a1 1 0 001-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 00-7-7zm2 18H10a1 1 0 000 2h4a1 1 0 000-2z'/%3E%3C/svg%3E") !important;
+}
+
+svg[data-testid="graded-icon"] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23F4B400' d='M12 15.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM19.4 13c0-.3.1-.6.1-.9 0-.3 0-.6-.1-.9l2.1-1.7c.2-.2.2-.4.1-.6l-2-3.5c-.1-.2-.4-.3-.6-.2l-2.5 1c-.5-.4-1.1-.7-1.7-.9L14.4 2c0-.2-.2-.4-.5-.4h-4c-.2 0-.4.2-.5.4l-.4 2.7c-.6.2-1.1.5-1.7.9l-2.5-1c-.2-.1-.5 0-.6.2l-2 3.5c-.1.2 0 .5.1.6l2.1 1.7c-.1.3-.1.6-.1.9 0 .3 0 .6.1.9l-2.1 1.7c-.2.2-.2.4-.1.6l2 3.5c.1.2.4.3.6.2l2.5-1c.5.4 1.1.7 1.7.9l.4 2.7c0 .2.2.4.5.4h4c.2 0 .4-.2.5-.4l.4-2.7c.6-.2 1.1-.5 1.7-.9l2.5 1c.2.1.5 0 .6-.2l2-3.5c.1-.2 0-.5-.1-.6l-2.1-1.7z'/%3E%3C/svg%3E") !important;
+}
+html {
+    background-color: #FFF9F1 !important;
+}
 // Import component-specific sass files
 @import "courseware/course/celebration/CelebrationModal.scss";
 @import "courseware/course/sidebar/sidebars/discussions/Discussions.scss";
