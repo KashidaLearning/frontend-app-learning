@@ -797,6 +797,51 @@ svg[data-testid="graded-icon"] {
 .theme-toggle-button {
     display: none;
 }
+.wrapper.wrapper-footer {
+    background-color: #0A2940 !important; 
+    color: #FFFFFF !important;
+    padding: 30px 60px !important;
+    border-top: none !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between; 
+}
+
+.nav-colophon {
+    margin: 0 !important;
+}
+
+.nav-colophon ol {
+    display: flex !important;
+    flex-direction: row !important; 
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    gap: 30px; 
+}
+
+.nav-colophon ol li a {
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    white-space: nowrap;
+}
+
+.nav-colophon ol li a:hover {
+    opacity: 0.8;
+}
+.wrapper.wrapper-footer::after {
+    content: "";
+    display: block;
+    width: 60px; 
+    height: 60px;
+    background-image: url("https://karaneef.kashida-learning.co/asset-v1:bau+cs112+cs1234+type@asset+block@Madaya_Icon_4.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: auto; 
+}
 // Import component-specific sass files
 @import "courseware/course/celebration/CelebrationModal.scss";
 @import "courseware/course/sidebar/sidebars/discussions/Discussions.scss";
