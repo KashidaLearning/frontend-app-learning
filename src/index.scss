@@ -842,6 +842,15 @@ svg[data-testid="graded-icon"] {
     background-position: center;
     margin-left: auto; 
 }
+ul.logo-list {
+    display: none;
+}
+span.copyright-site {
+    display: none;
+}
+a.pgn__dropdown-item.dropdown-item {
+    color: #0A2940 !important;
+}
 // Import component-specific sass files
 @import "courseware/course/celebration/CelebrationModal.scss";
 @import "courseware/course/sidebar/sidebars/discussions/Discussions.scss";
