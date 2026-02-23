@@ -1,7 +1,12 @@
+// Fix for missing theme variables in header/footer imports
+$component-active-bg: #0075b0 !default; 
+$component-active-color: #ffffff !default;
+
 @use "@openedx/paragon/styles/css/core/custom-media-breakpoints" as paragonCustomMediaBreakpoints;
 
 @import "~@edx/frontend-component-footer/dist/footer";
 @import "~@edx/frontend-component-header/dist/index";
+
 
 
 #root {
