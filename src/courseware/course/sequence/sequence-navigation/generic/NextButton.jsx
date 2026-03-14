@@ -1,12 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button, IconButton, Icon } from '@openedx/paragon';
-import {
-  ArrowBack,
-  ArrowForward,
-  ChevronLeft,
-  ChevronRight,
-} from '@openedx/paragon/icons';
+import { ReactComponent as NextArrow } from './../../../../../custom-icons/NextArrow.svg';
 import { isRtl, getLocale } from '@edx/frontend-platform/i18n';
 
 import UnitNavigationEffortEstimate from '../UnitNavigationEffortEstimate';
@@ -30,12 +25,9 @@ const NextButton = ({
     </UnitNavigationEffortEstimate>
   ) : buttonText;
 
-  const getNextArrow = () => {
-    if (isAtTop) {
-      return isRtl(getLocale()) ? ArrowBack : ArrowForward;
-    }
-    return isRtl(getLocale()) ? ChevronLeft : ChevronRight;
-  };
+ const getNextArrow = () => (
+  isRtl(getLocale()) ? PreviousArrow : NextArrow
+);
 
   const nextArrow = getNextArrow();
 
@@ -67,7 +59,7 @@ const NextButton = ({
       to={disabled ? undefined : navLink}
       iconAfter={nextArrow}
     >
-      {buttonContent}
+   
     </Button>
   );
 };

@@ -6,6 +6,7 @@ import {
   MenuOpen as MenuOpenIcon,
   ChevronLeft as ChevronLeftIcon,
 } from '@openedx/paragon/icons';
+import { TableRows } from '@openedx/paragon/icons';
 
 import { useModel } from '@src/generic/model-store';
 import { LOADING } from '@src/constants';
@@ -54,7 +55,7 @@ const CourseOutlineTray = () => {
   };
 
   const sidebarHeading = (
-    <div className="outline-sidebar-heading-wrapper sticky d-flex justify-content-between align-self-start align-items-center bg-light-200 p-2.5 pl-4">
+    <div className="outline-sidebar-heading-wrapper sticky d-flex justify-content-between align-self-start align-items-center p-2.5 pl-4">
       {isDisplaySequenceLevel && backButtonTitle ? (
         <Button
           variant="link"
@@ -71,8 +72,8 @@ const CourseOutlineTray = () => {
       )}
       <IconButton
         alt={intl.formatMessage(messages.toggleCourseOutlineTrigger)}
-        className="outline-sidebar-toggle-btn flex-shrink-0 text-dark bg-light-200"
-        iconAs={MenuOpenIcon}
+        className="outline-sidebar-toggle-btn flex-shrink-0 text-dark"
+        iconAs={TableRows}
         onClick={handleToggleCollapse}
       />
     </div>

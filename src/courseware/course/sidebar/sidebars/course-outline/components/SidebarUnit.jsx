@@ -26,7 +26,7 @@ const SidebarUnit = ({
   const iconType = isLocked ? UNIT_ICON_TYPES.lock : icon;
 
   return (
-    <li className={classNames({ 'bg-info-100': isActive, 'border-top border-light': !isFirst })}>
+    <li className={classNames({ 'bg-info-100': isActive, 'border-light': !isFirst })}>
       <UnitLinkWrapper
         {...{
           sequenceId,

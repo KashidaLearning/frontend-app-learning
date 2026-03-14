@@ -11,6 +11,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background: #FFF9F1 !important;
 
   main {
     flex-grow: 1;
@@ -72,13 +73,6 @@
   margin-bottom: 4rem;
   margin-right: auto;
   margin-left: auto;
-}
-
-.sequence {
-  @media (min-width: map-get($grid-breakpoints, "sm")) {
-    border: solid 1px #eaeaea;
-    border-radius: 4px;
-  }
 }
 
 .sequence-navigation-container {
@@ -457,6 +451,107 @@
     }
   }
 }
+
+
+//custom styles
+
+//Course Outline
+
+.outline-sidebar-heading-wrapper.sticky {
+  border-radius: 10px !important;
+  background: #326A73 !important;
+  border-color: #326A73 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+a.row.w-100.m-0.d-flex.align-items-center.text-gray-700 {
+   border-bottom: 2px solid #DDBE9A !important;
+   border-radius: 10px !important;
+}
+
+.collapsible-trigger {
+  border: 2px solid #DDBE9A !important;
+  border-radius: 10px !important;
+}
+
+.collapsible-card-lg {
+  border: unset !important;
+}
+
+.d-flex.hide-notification {
+  display: none !important;
+}
+
+.outline-sidebar-heading-wrapper .outline-sidebar-heading {
+  color: #FFFFFF !important;
+}
+
+.outline-sidebar-toggle-btn {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-radius: 0 !important;
+}
+
+.outline-sidebar-toggle-btn svg {
+  color: white !important;
+}
+
+.outline-sidebar-heading-wrapper  {
+  background: #326A73 !important;
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 10px !important;
+  border-bottom-left-radius: 10px !important;
+
+}
+
+.btn-icon svg , .unit-navigation svg {
+  overflow: visible;
+}
+
+/*
+.previous-button,
+.next-button {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+*/
+
+.unit-navigation .previous-button,
+.unit-navigation .next-button {
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  padding: 0;
+  border-radius: 50% !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background:#0A2940 !important;
+  align-items: center;
+}
+
+
+.unit-navigation .previous-button svg path,
+.unit-navigation .next-button svg path {
+  fill: #FFF9F1 !important;
+}
+
+.d-flex .unit-navigation {
+  gap:20px;
+}
+
+.unit-navigation .next-button, .unit-navigation .previous-button {
+  flex-basis: 0 !important;
+}
+
+.btn-icon.btn-icon-primary.hover, .btn-icon.btn-icon-primary:hover, .btn-icon.btn-icon-primary.active, .btn-icon.btn-icon-primary:active {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+
 
 // Import component-specific sass files
 @import "courseware/course/celebration/CelebrationModal.scss";
