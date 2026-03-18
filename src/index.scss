@@ -561,6 +561,38 @@ a.row.w-100.m-0.d-flex.align-items-center.text-gray-700 {
 }
 
 
+@font-face {
+  font-family: 'Manrope';
+  src: url('./assets/fonts/Manrope-VariableFont_wght.ttf') format('truetype');
+  font-weight: 200 800; // variable range
+  font-style: normal;
+  font-display: swap;
+}
+
+//Font overrides
+html, body {
+  font-family: 'Manrope' !important;
+}
+h1, h2, h3, h4, h5, h6, span, a, p, li {
+  font-family: 'Manrope'!important;
+}
+button,
+input,
+textarea,
+select {
+  font-family: inherit !important;
+}
+
+h3, .h3 {
+font-family: Manrope;
+font-weight: 800 !important;
+font-size: 35px !important;
+line-height: 48.5px !important;
+letter-spacing: 0%;
+color: #0A2940 !important
+}
+
+
 
 // Import component-specific sass files
 @import "courseware/course/celebration/CelebrationModal.scss";
