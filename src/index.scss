@@ -591,8 +591,31 @@ line-height: 48.5px !important;
 letter-spacing: 0%;
 color: #0A2940 !important
 }
+.main-menu .nav-link.active, .main-menu .nav-link:focus, .main-menu .nav-link:hover, .site-header-desktop .main-nav .nav-link.active, .site-header-desktop .main-nav .nav-link:focus, .site-header-desktop .main-nav .nav-link:hover {
+    text-decoration: underline;
+    color: #44C8CC !important;
+}
+.menu-trigger.btn.btn-outline-primary {
+    color: #fff9f1 !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    border: none !important;
+    background: none !important;
+}
 
+button.menu-trigger > svg {
+  display: none !important;
+}
 
+button.menu-trigger::after {
+  content: "\f0d7";
+  font-family: "FontAwesome" !important;
+  color: #ffffff !important;
+  font-size: 14px;
+  margin-left: 8px;
+  display: inline-block;
+  line-height: 1;
+}
 
 // Import component-specific sass files
 @import "courseware/course/celebration/CelebrationModal.scss";
