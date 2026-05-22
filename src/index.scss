@@ -616,7 +616,40 @@ button.menu-trigger::after {
   display: inline-block;
   line-height: 1;
 }
+.container-fluid.null, .null.container-lg, .null.container-md, .null.container-sm, .null.container-xl {
+    max-width: 1440px !important;
+    height: 105px;
+}
+.align-items-center {
+    padding: 14px 0;
+}
+@media (max-width: 767px) {
 
+  .learning-header .container-xl {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  .learning-header .main-nav {
+    display: none !important;
+  }
+
+ 
+
+  .learning-header .user-dropdown,
+  .learning-header .pgn__dropdown {
+    margin-left: auto !important;
+    flex-shrink: 0 !important;
+  }
+
+
+
+}
 // Import component-specific sass files
 @import "courseware/course/celebration/CelebrationModal.scss";
 @import "courseware/course/sidebar/sidebars/discussions/Discussions.scss";
