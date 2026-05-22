@@ -650,6 +650,25 @@ button.menu-trigger::after {
 
 
 }
+@media (max-width: 767px) {
+  #courseTabsNavigation .container-xl {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  #courseTabsNavigation .nav-bar {
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  #courseTabsNavigation .nav-menu {
+    width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+  }
+}
 // Import component-specific sass files
 @import "courseware/course/celebration/CelebrationModal.scss";
 @import "courseware/course/sidebar/sidebars/discussions/Discussions.scss";
