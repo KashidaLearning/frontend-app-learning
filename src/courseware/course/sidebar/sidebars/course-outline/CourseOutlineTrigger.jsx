@@ -2,7 +2,6 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { useIntl } from '@edx/frontend-platform/i18n';
 import { IconButton } from '@openedx/paragon';
-import { MenuOpen as MenuOpenIcon } from '@openedx/paragon/icons';
 import { TableRows } from '@openedx/paragon/icons';
 
 import { useCourseOutlineSidebar } from './hooks';
@@ -11,6 +10,7 @@ import messages from './messages';
 
 const CourseOutlineTrigger = ({ isMobileView }) => {
   const intl = useIntl();
+
   const {
     currentSidebar,
     shouldDisplayFullScreen,
@@ -19,18 +19,20 @@ const CourseOutlineTrigger = ({ isMobileView }) => {
     isEnabledSidebar,
   } = useCourseOutlineSidebar();
 
-  const isDisplayForDesktopView = !isMobileView && !shouldDisplayFullScreen && currentSidebar !== ID;
-  const isDisplayForMobileView = isMobileView;
+  const isCollapsed = currentSidebar !== ID;
 
-  if ((!isDisplayForDesktopView && !isDisplayForMobileView) || !isEnabledSidebar || isActiveEntranceExam) {
+  const shouldShowTrigger = isCollapsed || isMobileView;
+
+  if (!shouldShowTrigger || !isEnabledSidebar || isActiveEntranceExam) {
     return null;
   }
 
   return (
-    <div className={classNames('outline-sidebar-heading-wrapper collapsed align-self-start', {
-      'flex-shrink-0 mr-4 p-2.5': isDisplayForDesktopView,
-      'p-0': isDisplayForMobileView,
-    })}
+    <div
+      className={classNames('outline-sidebar-heading-wrapper collapsed align-self-start', {
+        'flex-shrink-0 mr-4 p-2.5': !isMobileView && !shouldDisplayFullScreen,
+        'p-0': isMobileView || shouldDisplayFullScreen,
+      })}
     >
       <IconButton
         alt={intl.formatMessage(messages.toggleCourseOutlineTrigger)}
