@@ -660,13 +660,24 @@ button.menu-trigger::after {
 
   #courseTabsNavigation .nav-bar {
     width: 100% !important;
-    overflow: hidden !important;
+    overflow: visible !important;
   }
 
   #courseTabsNavigation .nav-menu {
     width: 100% !important;
     overflow-x: auto !important;
-    overflow-y: hidden !important;
+    overflow-y: visible !important;
+  }
+
+  #courseTabsNavigation .dropdown-menu {
+    z-index: 9999 !important;
+  }
+    .d-flex.unit-navigation {
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    gap: 12px !important;
   }
 }
 // Import component-specific sass files
