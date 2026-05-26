@@ -688,6 +688,29 @@ a[href*="/dates"] {
 }
 
 
+@media (max-width: 768px) {
+  /* Make the sidebar not fixed */
+  .outline-sidebar-wrapper {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    z-index: auto !important;
+  }
+
+  /* Force the parent to stack vertically */
+  .sequence-container.d-inline-flex.flex-row {
+    flex-direction: column !important;
+    width: 100% !important;
+    display: flex !important;
+  }
+
+  .sequence.w-100 {
+    width: 100% !important;
+  }
+}
 
 
 
