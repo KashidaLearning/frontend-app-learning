@@ -20,7 +20,7 @@ const CourseOutlineTrigger = ({ isMobileView }) => {
   } = useCourseOutlineSidebar();
 
   const isDisplayForDesktopView = !isMobileView && !shouldDisplayFullScreen && currentSidebar !== ID;
-  const isDisplayForMobileView = isMobileView && shouldDisplayFullScreen;
+  const isDisplayForMobileView = isMobileView;
 
   if ((!isDisplayForDesktopView && !isDisplayForMobileView) || !isEnabledSidebar || isActiveEntranceExam) {
     return null;
