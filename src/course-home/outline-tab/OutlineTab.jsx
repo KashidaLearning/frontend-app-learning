@@ -27,6 +27,7 @@ import WelcomeMessage from './widgets/WelcomeMessage';
 import ProctoringInfoPanel from './widgets/ProctoringInfoPanel';
 import AccountActivationAlert from '../../alerts/logistration-alert/AccountActivationAlert';
 import CourseHomeSectionOutlineSlot from '../../plugin-slots/CourseHomeSectionOutlineSlot';
+import NonLinearOutline from './non-linear-outline/NonLinearOutline';
 
 const OutlineTab = () => {
   const intl = useIntl();
@@ -52,6 +53,7 @@ const OutlineTab = () => {
       selectedGoal,
       weeklyLearningGoalEnabled,
     } = {},
+    courseType,
     datesWidget: {
       courseDateBlocks,
     },
@@ -161,11 +163,19 @@ const OutlineTab = () => {
                   </Button>
                 </div>
               </div>
-              <CourseHomeSectionOutlineSlot
-                expandAll={expandAll}
-                sectionIds={courses[rootCourseId].sectionIds}
-                sections={sections}
-              />
+              {courseType === 'non-linear' ? (
+                <NonLinearOutline
+                  expandAll={expandAll}
+                  sectionIds={courses[rootCourseId].sectionIds}
+                  sections={sections}
+                />
+              ) : (
+                <CourseHomeSectionOutlineSlot
+                  expandAll={expandAll}
+                  sectionIds={courses[rootCourseId].sectionIds}
+                  sections={sections}
+                />
+              )}
             </>
           )}
         </div>

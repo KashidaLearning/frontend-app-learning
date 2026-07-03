@@ -30,6 +30,7 @@ export function normalizeOutlineBlocks(courseId, blocks) {
     courses: {},
     sections: {},
     sequences: {},
+    units: {},
   };
   Object.values(blocks).forEach(block => {
     switch (block.type) {
@@ -68,11 +69,24 @@ export function normalizeOutlineBlocks(courseId, blocks) {
           title: block.display_name,
           hideFromTOC: block.hide_from_toc,
           navigationDisabled: block.navigation_disabled,
+          unitIds: block.children || [],
+        };
+        break;
+
+      case 'vertical':
+        models.units[block.id] = {
+          id: block.id,
+          complete: block.complete,
+          title: block.display_name,
+          imageForUnit: block.image_for_unit,
+          imageForUnitIcon: block.image_for_unit_icon,
+          durationForUnit: block.duration_for_unit,
+          topIconForUnit: block.top_icon_for_unit,
         };
         break;
 
       default:
-        logInfo(`Unexpected course block type: ${block.type} with ID ${block.id}.  Expected block types are course, chapter, and sequential.`);
+        logInfo(`Unexpected course block type: ${block.type} with ID ${block.id}.  Expected block types are course, chapter, sequential, and vertical.`);
     }
   });
 
@@ -95,6 +109,18 @@ export function normalizeOutlineBlocks(courseId, blocks) {
         } else {
           logInfo(`Section ${section.id} has child block ${sequenceId}, but that block is not in the list of sequences.`);
         }
+      });
+    }
+  });
+
+  Object.values(models.sequences).forEach(sequence => {
+    if (Array.isArray(sequence.unitIds)) {
+      sequence.unitIds.forEach(unitId => {
+        if (unitId in models.units) {
+          models.units[unitId].sequenceId = sequence.id;
+        }
+        // Units are only present in the response when the backend has decided to include them
+        // (e.g. for linear/non-linear courses), so a missing unit here is expected, not an error.
       });
     }
   });
@@ -279,6 +305,7 @@ export async function getOutlineTabData(courseId) {
   const courseBlocks = data.course_blocks ? normalizeOutlineBlocks(courseId, data.course_blocks.blocks) : {};
   const courseGoals = camelCaseObject(data.course_goals);
   const courseTools = camelCaseObject(data.course_tools);
+  const courseType = data.course_type;
   const datesBannerInfo = camelCaseObject(data.dates_banner_info);
   const datesWidget = camelCaseObject(data.dates_widget);
   const enableProctoredExams = data.enable_proctored_exams;
@@ -300,6 +327,7 @@ export async function getOutlineTabData(courseId) {
     courseBlocks,
     courseGoals,
     courseTools,
+    courseType,
     datesBannerInfo,
     datesWidget,
     enrollAlert,

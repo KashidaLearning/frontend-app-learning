@@ -1,9 +1,12 @@
 import React from 'react';
 import classNames from 'classnames';
 
+import { useModel } from '../../../generic/model-store';
+import { useContextId } from '../../../data/hooks';
 import SequenceDueDate from './SequenceDueDate';
 import HiddenSequenceLink from './HiddenSequenceLink';
 import SequenceTitle from './SequenceTitle';
+import SubsectionUnitsList from './SubsectionUnitsList';
 
 interface Props {
   id: string;
@@ -15,6 +18,7 @@ interface Props {
     showLink: boolean;
     title: string;
     hideFromTOC: boolean;
+    unitIds?: string[];
   }
 }
 
@@ -30,7 +34,12 @@ const SequenceLink: React.FC<Props> = ({
     showLink,
     title,
     hideFromTOC,
+    unitIds,
   } = sequence;
+
+  const courseId = useContextId();
+  const { courseType, courseBlocks: { units = {} } = {} } = useModel('outline', courseId);
+  const showUnitsList = courseType === 'linear' && Array.isArray(unitIds) && unitIds.length > 0;
 
   return (
     <li>
@@ -48,6 +57,9 @@ const SequenceLink: React.FC<Props> = ({
           <HiddenSequenceLink />
         )}
         <SequenceDueDate {...{ due, id, description }} />
+        {showUnitsList && (
+          <SubsectionUnitsList sequenceId={id} unitIds={unitIds as string[]} units={units} />
+        )}
       </div>
     </li>
   );
