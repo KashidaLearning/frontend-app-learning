@@ -15,7 +15,10 @@
     }
 }
 
-
+[dir=rtl] body {
+    text-align: right;
+    font-family: 'Noto Sans Arabic';
+}
 
 #root {
   display: flex;
