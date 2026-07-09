@@ -6,6 +6,16 @@
 @import "~@edx/frontend-component-footer/dist/footer";
 @import "~@edx/frontend-component-header/dist/index";
 
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;700&display=swap");
+
+[dir="rtl"],
+[lang="ar"] {
+   h1, h2, h3, h4, h5, h6, span, a, p, li {
+        font-family: 'Noto Sans Arabic' !important;
+    }
+}
+
+
 
 #root {
   display: flex;
