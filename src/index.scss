@@ -590,16 +590,16 @@ a.row.w-100.m-0.d-flex.align-items-center.text-gray-700 {
 
 //Font overrides
 html, body {
-  font-family: 'Manrope' !important;
+  font-family: 'Manrope';
 }
 h1, h2, h3, h4, h5, h6, span, a, p, li {
-  font-family: 'Manrope'!important;
+  font-family: 'Manrope';
 }
 button,
 input,
 textarea,
 select {
-  font-family: inherit !important;
+  font-family: inherit;
 }
 
 h3, .h3 {
