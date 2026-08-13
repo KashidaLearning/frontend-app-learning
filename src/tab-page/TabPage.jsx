@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
 import { Toast } from '@openedx/paragon';
-import { FooterSlot } from '@edx/frontend-component-footer';
 import HeaderSlot from '../plugin-slots/HeaderSlot';
 import PageLoading from '../generic/PageLoading';
 import { getAccessDeniedRedirectUrl } from '../shared/access';
@@ -81,7 +80,6 @@ const TabPage = (props) => {
           {intl.formatMessage(messages.failure)}
         </p>
       )}
-      <FooterSlot />
     </>
   );
 };

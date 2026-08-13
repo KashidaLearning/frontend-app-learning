@@ -7,8 +7,9 @@ import { AppProvider, ErrorPage, PageWrap } from '@edx/frontend-platform/react';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Routes, Route } from 'react-router-dom';
-
 import { Helmet } from 'react-helmet';
+import { RowadHeader, RowadFooter } from '@edx/frontend-component-header';
+
 import { fetchDiscussionTab, fetchLiveTab } from './course-home/data/thunks';
 import DiscussionTab from './course-home/discussion-tab/DiscussionTab';
 
@@ -46,6 +47,7 @@ subscribe(APP_READY, () => {
         <Helmet>
           <link rel="shortcut icon" href={getConfig().FAVICON_URL} type="image/x-icon" />
         </Helmet>
+        <RowadHeader />
         <PathFixesProvider>
           <NoticesProvider>
             <UserMessagesProvider>
@@ -104,47 +106,41 @@ subscribe(APP_READY, () => {
                       </DecodePageRoute>
                     )}
                   />
-                  {DECODE_ROUTES.PROGRESS.map((route) => (
+                  {DECODE_ROUTES.PROGRESS.map(route => (
                     <Route
                       key={route}
                       path={route}
                       element={(
                         <DecodePageRoute>
-                          <TabContainer
-                            tab="progress"
-                            fetch={fetchProgressTab}
-                            slice="courseHome"
-                            isProgressTab
-                          >
+                          <TabContainer tab="progress" fetch={fetchProgressTab} slice="courseHome">
                             <ProgressTab />
                           </TabContainer>
                         </DecodePageRoute>
-                      )}
+                    )}
                     />
                   ))}
-                  <Route
-                    path={DECODE_ROUTES.COURSE_END}
-                    element={(
-                      <DecodePageRoute>
-                        <TabContainer tab="courseware" fetch={fetchCourse} slice="courseware">
-                          <CourseExit />
-                        </TabContainer>
-                      </DecodePageRoute>
-                    )}
-                  />
-                  {DECODE_ROUTES.COURSEWARE.map((route) => (
+                  {DECODE_ROUTES.COURSEWARE.map(route => (
                     <Route
                       key={route}
                       path={route}
                       element={(
-                        <DecodePageRoute>
+                        <DecodePageRoute fetch={fetchCourse}>
                           <CoursewareContainer />
                         </DecodePageRoute>
-                      )}
+                    )}
                     />
                   ))}
+                  <Route
+                    path={DECODE_ROUTES.COURSE_EXIT}
+                    element={(
+                      <DecodePageRoute>
+                        <CourseExit />
+                      </DecodePageRoute>
+                    )}
+                  />
                 </Routes>
               </div>
+              <RowadFooter />
             </UserMessagesProvider>
           </NoticesProvider>
         </PathFixesProvider>
