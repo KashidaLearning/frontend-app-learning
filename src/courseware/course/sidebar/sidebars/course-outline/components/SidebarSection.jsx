@@ -1,63 +1,102 @@
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useIntl } from '@edx/frontend-platform/i18n';
-import { Button, Icon } from '@openedx/paragon';
-import { ChevronRight as ChevronRightIcon } from '@openedx/paragon/icons';
+import { Collapsible } from '@openedx/paragon';
 
 import courseOutlineMessages from '@src/course-home/outline-tab/messages';
 import CompletionIcon from './CompletionIcon';
+import SidebarSequence from './SidebarSequence';
 import { useCourseOutlineSidebar } from '../hooks';
 
-const SidebarSection = ({ section, handleSelectSection }) => {
+const SidebarSection = ({
+  courseId,
+  section,
+  sequences,
+  activeUnitId,
+  defaultOpen,
+}) => {
   const intl = useIntl();
+  const [open, setOpen] = useState(defaultOpen);
+
   const {
-    id,
     complete,
     title,
     sequenceIds,
     completionStat,
   } = section;
 
-  const { activeSequenceId, isEnabledCompletionTracking } = useCourseOutlineSidebar();
-  const isActiveSection = sequenceIds.includes(activeSequenceId);
+  const {
+    activeSequenceId,
+    isEnabledCompletionTracking,
+  } = useCourseOutlineSidebar();
 
   const sectionTitle = (
     <>
-      <div className="col-auto p-0">
-        <CompletionIcon completionStat={completionStat} enabled={isEnabledCompletionTracking} />
+      <div className="col-auto p-0 rowad-section-progress">
+        <CompletionIcon
+          completionStat={completionStat}
+          enabled={isEnabledCompletionTracking}
+        />
       </div>
-      <div className="col-10 ml-3 p-0 flex-grow-1 text-dark-500 text-left text-break">
-        {title}
+
+      <div className="col-9 d-flex flex-column flex-grow-1 ml-3 mr-auto p-0 text-left">
+        <span className="align-middle text-dark-500 rowad-section-title">
+          {title}
+        </span>
+
         {isEnabledCompletionTracking && (
           <span className="sr-only">
-            , {intl.formatMessage(complete
-            ? courseOutlineMessages.completedSection
-            : courseOutlineMessages.incompleteSection)}
+            , {intl.formatMessage(
+            complete
+              ? courseOutlineMessages.completedSection
+              : courseOutlineMessages.incompleteSection,
+          )}
           </span>
         )}
-
       </div>
     </>
   );
 
   return (
-    <li className="mb-2 course-sidebar-section">
-      <Button
-        variant="tertiary"
-        className={classNames(
-          'd-flex align-items-center w-100 px-4 py-3.5 rounded-0 justify-content-start',
-          { 'bg-info-100': isActiveSection },
-        )}
-        onClick={() => handleSelectSection(id)}
+    <li className="mb-2 course-sidebar-section rowad-sidebar-section">
+      <Collapsible
+        className={classNames('rowad-section-collapsible', {
+          'active-section': defaultOpen,
+        })}
+        styling="card-lg text-break"
+        title={sectionTitle}
+        open={open}
+        onToggle={() => setOpen(!open)}
       >
-        {sectionTitle}
-        <Icon src={ChevronRightIcon} />
-      </Button>
+        <ol className="list-unstyled rowad-section-sequences">
+          {sequenceIds.map((sequenceId) => {
+            const sequence = sequences[sequenceId];
+
+            if (!sequence) {
+              return null;
+            }
+
+            return (
+              <SidebarSequence
+                key={sequenceId}
+                courseId={courseId}
+                sequence={sequence}
+                defaultOpen={sequenceId === activeSequenceId}
+                activeUnitId={activeUnitId}
+              />
+            );
+          })}
+        </ol>
+      </Collapsible>
     </li>
   );
 };
 
 SidebarSection.propTypes = {
+  courseId: PropTypes.string.isRequired,
+  activeUnitId: PropTypes.string.isRequired,
+  defaultOpen: PropTypes.bool.isRequired,
   section: PropTypes.shape({
     complete: PropTypes.bool,
     id: PropTypes.string,
@@ -68,7 +107,18 @@ SidebarSection.propTypes = {
       total: PropTypes.number,
     }),
   }).isRequired,
-  handleSelectSection: PropTypes.func.isRequired,
+  sequences: PropTypes.objectOf(PropTypes.shape({
+    complete: PropTypes.bool,
+    id: PropTypes.string,
+    title: PropTypes.string,
+    type: PropTypes.string,
+    specialExamInfo: PropTypes.string,
+    unitIds: PropTypes.arrayOf(PropTypes.string),
+    completionStat: PropTypes.shape({
+      completed: PropTypes.number,
+      total: PropTypes.number,
+    }),
+  })).isRequired,
 };
 
 export default SidebarSection;

@@ -1,6 +1,5 @@
 @use "@openedx/paragon/styles/css/core/custom-media-breakpoints" as paragonCustomMediaBreakpoints;
 
-@import "~@edx/frontend-component-footer/dist/footer";
 @import "~@edx/frontend-component-header/dist/index";
 
 
@@ -466,3 +465,728 @@
 @import "course-tabs/course-tabs-navigation.scss";
 @import "courseware/course/sidebar/common/SidebarBase.scss";
 @import "courseware/course/sidebar/sidebars/course-outline/CourseOutlineTray.scss";
+
+/* ROWAD LEARNING COURSE CONTEXT */
+.rowad-learning-course-context {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid rgba(23, 53, 62, 0.12);
+}
+
+.rowad-learning-course-context__inner {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  width: 100%;
+  min-width: 0;
+  padding: 0.75rem 1.5rem;
+}
+
+.rowad-learning-course-context__code {
+  flex: 0 0 auto;
+  color: #65757b;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.rowad-learning-course-context__title {
+  min-width: 0;
+  overflow: hidden;
+  color: #17353e;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+[dir="rtl"] .rowad-learning-course-context__inner {
+  text-align: right;
+}
+
+@media (max-width: 575.98px) {
+  .rowad-learning-course-context__inner {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.125rem;
+    padding: 0.625rem 1rem;
+  }
+
+  .rowad-learning-course-context__title {
+    width: 100%;
+  }
+}
+
+/* ROWAD COURSEWARE LAYOUT - STEP 2 */
+
+/*
+ * Applied only to the Course tab. Other pages such as Progress,
+ * Dates, Instructor, Discussions, and course Home remain unchanged.
+ */
+.rowad-courseware-page {
+  flex: 1 0 auto;
+  width: 100%;
+  background-color: #f4f6f4;
+}
+
+/*
+ * Make the courseware area wider than the default Bootstrap
+ * container while preserving responsive side spacing.
+ */
+.rowad-courseware-shell {
+  width: 100%;
+  max-width: 1600px !important;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 3vw, 3.5rem);
+  padding-bottom: 3rem;
+}
+
+/*
+ * The main white rounded container from the target design.
+ */
+.rowad-courseware-card {
+  width: 100%;
+  min-width: 0;
+  min-height: 36rem;
+  padding: clamp(1.25rem, 2vw, 2rem);
+  background-color: #fff;
+  border: 1px solid #e3e8e5;
+  border-radius: 1.5rem;
+  box-shadow: 0 0.375rem 1.5rem rgba(23, 53, 62, 0.06);
+}
+
+/*
+ * The breadcrumb, mobile outline trigger, chat and discussion
+ * controls remain functional inside the new container.
+ */
+.rowad-courseware-toolbar {
+  width: 100%;
+  min-width: 0;
+  margin-top: 0 !important;
+}
+
+/*
+ * Allow the course content column to shrink correctly instead of
+ * forcing horizontal page scrolling.
+ */
+.rowad-courseware-card .sequence-container {
+  width: 100%;
+  min-width: 0;
+  align-items: stretch;
+}
+
+.rowad-courseware-card .sequence {
+  flex: 1 1 auto;
+  width: auto !important;
+  min-width: 0;
+}
+
+.rowad-courseware-card .unit-container {
+  min-width: 0;
+}
+
+/*
+ * Desktop two-column structure:
+ *   outline = approximately 300px
+ *   content = remaining available width
+ *
+ * Logical margin properties automatically support LTR and RTL.
+ */
+@media (min-width: 1200px) {
+  .rowad-courseware-card .outline-sidebar-wrapper {
+    flex: 0 0 18.75rem;
+    width: 18.75rem;
+    max-width: 18.75rem;
+    margin: 0 !important;
+    margin-inline-end: 1.5rem !important;
+  }
+
+  .rowad-courseware-card .outline-sidebar {
+    width: 100%;
+    min-width: 0;
+  }
+
+  /*
+   * When the outline is collapsed, retain only its compact trigger
+   * and allow the content column to use the released space.
+   */
+  
+}
+
+/*
+ * Below desktop width Open edX keeps using its existing full-screen
+ * outline tray. We only adjust the surrounding white container.
+ */
+@media (max-width: 1199.98px) {
+  .rowad-courseware-shell {
+    max-width: 100% !important;
+    padding-inline: 1.25rem;
+    padding-bottom: 2rem;
+  }
+
+  .rowad-courseware-card {
+    min-height: 30rem;
+    padding: 1.25rem;
+    border-radius: 1.25rem;
+  }
+
+  .rowad-courseware-card .sequence-container {
+    display: block !important;
+  }
+}
+
+/*
+ * Small phones: keep safe horizontal spacing and avoid overflow.
+ */
+@media (max-width: 575.98px) {
+  .rowad-courseware-page {
+    background-color: #f4f6f4;
+  }
+
+  .rowad-courseware-shell {
+    padding-inline: 0.75rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .rowad-courseware-card {
+    min-height: 24rem;
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+
+  .rowad-courseware-toolbar {
+    margin-bottom: 1rem !important;
+  }
+}
+/* ROWAD OUTLINE TOGGLE — COLOR AND RADIUS ONLY */
+.outline-sidebar-heading-wrapper.collapsed,
+.outline-sidebar-heading-wrapper.collapsed button,
+.outline-sidebar-heading-wrapper.collapsed .btn {
+  background-color: #18504d !important;
+  border-color: #18504d !important;
+  border-radius: 12px !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+
+.outline-sidebar-heading-wrapper.collapsed:hover,
+.outline-sidebar-heading-wrapper.collapsed:hover button,
+.outline-sidebar-heading-wrapper.collapsed:hover .btn {
+  background-color: #0b312b !important;
+  border-color: #0b312b !important;
+}
+
+.outline-sidebar-heading-wrapper.collapsed svg,
+.outline-sidebar-heading-wrapper.collapsed .pgn__icon {
+  color: #fff !important;
+  fill: currentColor !important;
+}
+
+/* ROWAD FIGMA UNIT NAVIGATION BUTTONS */
+
+:root {
+  --rowad-control-green: #18504d;
+  --rowad-control-green-hover: #0b312b;
+  --rowad-control-orange: #da8259;
+}
+
+/*
+ * Only the space between the two buttons is changed.
+ * Their navigation-row positions remain untouched.
+ */
+.top-unit-navigation,
+.unit-navigation {
+  column-gap: 0.5rem !important;
+}
+
+/* Top and bottom Previous/Next buttons. */
+.top-unit-navigation .previous-button,
+.top-unit-navigation .next-button,
+.unit-navigation .previous-button,
+.unit-navigation .next-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  flex: 0 0 3rem !important;
+  box-sizing: border-box !important;
+
+  width: 3rem !important;
+  min-width: 3rem !important;
+  max-width: 3rem !important;
+
+  height: 3rem !important;
+  min-height: 3rem !important;
+  max-height: 3rem !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  overflow: hidden !important;
+
+  background-color: var(--rowad-control-green) !important;
+  border: 1px solid var(--rowad-control-green) !important;
+  border-radius: 0.5rem !important;
+  box-shadow: none !important;
+
+  color: #fff !important;
+
+  /* Hide Previous/Next text visually while retaining its accessible name. */
+  font-size: 0 !important;
+  line-height: 0 !important;
+  text-decoration: none !important;
+
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+/* Remove Paragon's original icon margins. */
+.top-unit-navigation .btn-icon-before,
+.top-unit-navigation .btn-icon-after,
+.unit-navigation .btn-icon-before,
+.unit-navigation .btn-icon-after {
+  margin: 0 !important;
+}
+
+/* Figma-sized centered white chevrons. */
+.top-unit-navigation .previous-button svg,
+.top-unit-navigation .next-button svg,
+.unit-navigation .previous-button svg,
+.unit-navigation .next-button svg,
+.top-unit-navigation .previous-button .pgn__icon,
+.top-unit-navigation .next-button .pgn__icon,
+.unit-navigation .previous-button .pgn__icon,
+.unit-navigation .next-button .pgn__icon {
+  display: block !important;
+  flex: 0 0 1.25rem !important;
+
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+
+  margin: 0 !important;
+
+  color: #fff !important;
+  fill: currentColor !important;
+}
+
+/* Hover. */
+.top-unit-navigation .previous-button:hover,
+.top-unit-navigation .next-button:hover,
+.unit-navigation .previous-button:hover,
+.unit-navigation .next-button:hover {
+  background-color: var(--rowad-control-green-hover) !important;
+  border-color: var(--rowad-control-green-hover) !important;
+  color: #fff !important;
+}
+
+/* Keyboard focus. */
+.top-unit-navigation .previous-button:focus-visible,
+.top-unit-navigation .next-button:focus-visible,
+.unit-navigation .previous-button:focus-visible,
+.unit-navigation .next-button:focus-visible {
+  outline: 0 !important;
+  box-shadow:
+    0 0 0 3px rgba(240, 143, 98, 0.4) !important;
+}
+
+/* First/last-unit disabled state. */
+.top-unit-navigation .previous-button:disabled,
+.top-unit-navigation .next-button:disabled,
+.unit-navigation .previous-button:disabled,
+.unit-navigation .next-button:disabled,
+.top-unit-navigation [aria-disabled="true"],
+.unit-navigation [aria-disabled="true"] {
+  background-color: var(--rowad-control-green) !important;
+  border-color: var(--rowad-control-green) !important;
+  color: #fff !important;
+  cursor: not-allowed !important;
+  opacity: 0.45 !important;
+}
+
+/* ROWAD BOOKMARK — COLOR ONLY */
+button.btn-sm.text-primary-500.px-1.ml-n1,
+button.btn-sm.text-primary-500.px-1.ml-n1:hover,
+button.btn-sm.text-primary-500.px-1.ml-n1:focus,
+button.btn-sm.text-primary-500.px-1.ml-n1:active {
+  color: #DA8259 !important;
+}
+
+button.btn-sm.text-primary-500.px-1.ml-n1 svg,
+button.btn-sm.text-primary-500.px-1.ml-n1 .pgn__icon,
+button.btn-sm.text-primary-500.px-1.ml-n1 svg path {
+  color: #DA8259 !important;
+  fill: currentColor !important;
+}
+
+/* ROWAD OPEN COURSE OUTLINE COLORS */
+
+:root {
+  --rowad-outline-navy: #1c274c;
+  --rowad-outline-green: #18504d;
+  --rowad-outline-green-hover: #0b312b;
+  --rowad-outline-orange: #DA8259;
+  --rowad-outline-active: #e8efee;
+  --rowad-outline-hover: #f4f7f6;
+}
+.text-success {
+    color:  var(--rowad-outline-orange) !important;
+}
+/* ==========================================================
+   SECTION AND SUBSECTION TEXT
+   ========================================================== */
+
+#outline-sidebar-outline
+  .course-sidebar-section
+  button,
+#outline-sidebar-outline
+  .course-sidebar-section
+  button
+  .text-dark-500,
+#outline-sidebar-outline
+  .collapsible-trigger,
+#outline-sidebar-outline
+  .collapsible-trigger
+  .text-dark-500,
+#outline-sidebar-outline
+  .pgn__collapsible-trigger,
+#outline-sidebar-outline
+  .pgn__collapsible-trigger
+  .text-dark-500 {
+  color: var(--rowad-outline-navy) !important;
+}
+
+/* Unit names use the Rowad green shown in the reference. */
+#outline-sidebar-outline
+  .collapsible-body
+  ol
+  li
+  > a,
+#outline-sidebar-outline
+  .collapsible-body
+  ol
+  li
+  > a
+  .text-dark-500,
+#outline-sidebar-outline
+  .pgn__collapsible-body
+  ol
+  li
+  > a,
+#outline-sidebar-outline
+  .pgn__collapsible-body
+  ol
+  li
+  > a
+  .text-dark-500 {
+  color: var(--rowad-outline-green) !important;
+}
+
+/* Section/subsection expand and navigation arrows. */
+#outline-sidebar-outline
+  .course-sidebar-section
+  button
+  > svg,
+#outline-sidebar-outline
+  .collapsible-trigger
+  .collapsible-icon,
+#outline-sidebar-outline
+  .pgn__collapsible-trigger
+  .collapsible-icon {
+  color: var(--rowad-outline-green) !important;
+  fill: currentColor !important;
+}
+
+/* ==========================================================
+   CURRENT/SELECTED UNIT
+   ========================================================== */
+
+#outline-sidebar-outline
+  .bg-info-100,
+#outline-sidebar-outline
+  a[aria-current="page"],
+#outline-sidebar-outline
+  a.active {
+  background-color: var(--rowad-outline-active) !important;
+  color: var(--rowad-outline-green) !important;
+}
+
+/* Keep text green inside the selected row. */
+#outline-sidebar-outline
+  .bg-info-100
+  .text-dark-500,
+#outline-sidebar-outline
+  a[aria-current="page"]
+  .text-dark-500,
+#outline-sidebar-outline
+  a.active
+  .text-dark-500 {
+  color: var(--rowad-outline-green) !important;
+}
+
+/* Outline-row hover only. */
+#outline-sidebar-outline
+  .course-sidebar-section
+  button:hover,
+#outline-sidebar-outline
+  .collapsible-trigger:hover,
+#outline-sidebar-outline
+  .pgn__collapsible-trigger:hover,
+#outline-sidebar-outline
+  .collapsible-body
+  ol
+  li
+  > a:hover,
+#outline-sidebar-outline
+  .pgn__collapsible-body
+  ol
+  li
+  > a:hover {
+  background-color: var(--rowad-outline-hover) !important;
+  text-decoration: none !important;
+}
+
+/* The current unit stays visibly selected while hovering. */
+#outline-sidebar-outline
+  .bg-info-100:hover,
+#outline-sidebar-outline
+  a[aria-current="page"]:hover,
+#outline-sidebar-outline
+  a.active:hover {
+  background-color: var(--rowad-outline-active) !important;
+}
+
+/* ==========================================================
+   SECTION, SUBSECTION AND UNIT PROGRESS CIRCLES
+   ========================================================== */
+
+/*
+ * This targets the existing progress-icon container.
+ * The position and spacing of the icon remain controlled by
+ * the original Open edX layout.
+ */
+#outline-sidebar-outline
+  :is(button, a)
+  > .col-auto.p-0 {
+  position: relative !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  flex: 0 0 1rem !important;
+  width: 1rem !important;
+  min-width: 1rem !important;
+  height: 1rem !important;
+  min-height: 1rem !important;
+
+  color: var(--rowad-outline-orange) !important;
+}
+
+/* Hide the original book/check artwork. */
+#outline-sidebar-outline
+  :is(button, a)
+  > .col-auto.p-0
+  svg,
+#outline-sidebar-outline
+  :is(button, a)
+  > .col-auto.p-0
+  .pgn__icon {
+  display: none !important;
+}
+
+/* Default incomplete state: empty coral circle. */
+#outline-sidebar-outline
+  :is(button, a)
+  > .col-auto.p-0::before {
+  content: "";
+
+  display: block;
+
+  box-sizing: border-box;
+  width: 0.875rem;
+  height: 0.875rem;
+
+  background-color: transparent;
+  border: 2px solid var(--rowad-outline-orange);
+  border-radius: 50%;
+}
+
+/*
+ * Completed state: solid coral circle.
+ * Supports the Open edX completion component and the older
+ * Ulmo unit icon containing a success/check state.
+ */
+#outline-sidebar-outline
+  :is(button, a)
+  > .col-auto.p-0:has(
+    [data-testid="check-circle-icon"],
+    .text-success,
+    [class*="success"],
+    [data-testid*="completed"]
+  )::before {
+  background-color: var(--rowad-outline-orange);
+  border-color: var(--rowad-outline-orange);
+}
+
+/*
+ * Partial section/subsection progress:
+ * keep Open edX's calculated progress arc and recolor it coral.
+ */
+#outline-sidebar-outline
+  :is(button, a)
+  > .col-auto.p-0:has(
+    [data-testid="dashed-circle-icon"]
+  )::before {
+  display: none;
+}
+
+#outline-sidebar-outline
+  :is(button, a)
+  > .col-auto.p-0
+  [data-testid="dashed-circle-icon"] {
+  display: block !important;
+
+  width: 1rem !important;
+  height: 1rem !important;
+
+  color: var(--rowad-outline-orange) !important;
+  fill: var(--rowad-outline-orange) !important;
+  stroke: var(--rowad-outline-orange) !important;
+}
+
+#outline-sidebar-outline
+  :is(button, a)
+  > .col-auto.p-0
+  [data-testid="dashed-circle-icon"]
+  * {
+  color: var(--rowad-outline-orange) !important;
+  stroke: var(--rowad-outline-orange) !important;
+}
+
+/* Keyboard focus remains accessible using the Rowad accent. */
+#outline-sidebar-outline
+  button:focus-visible,
+#outline-sidebar-outline
+  a:focus-visible {
+  outline: 2px solid var(--rowad-outline-orange) !important;
+  outline-offset: -2px !important;
+}
+
+/* ROWAD OUTLINE STEP 1 — COURSE HEADER */
+
+/*
+ * Open outline only.
+ * No dimensions, margin, padding, or positioning are changed.
+ */
+.outline-sidebar-heading-wrapper:not(.collapsed) {
+  background-color: #18504d !important;
+  border-color: #18504d !important;
+  border-radius: 0.5rem !important;
+  color: #fff !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+}
+
+/* Remove any white background from elements inside the header row. */
+.outline-sidebar-heading-wrapper:not(.collapsed) > * {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  color: #fff !important;
+}
+
+/* Course name and both header controls. */
+.outline-sidebar-heading-wrapper:not(.collapsed) button,
+.outline-sidebar-heading-wrapper:not(.collapsed) .btn,
+.outline-sidebar-heading-wrapper:not(.collapsed) a,
+.outline-sidebar-heading-wrapper:not(.collapsed) span,
+.outline-sidebar-heading-wrapper:not(.collapsed) p,
+.outline-sidebar-heading-wrapper:not(.collapsed) h1,
+.outline-sidebar-heading-wrapper:not(.collapsed) h2,
+.outline-sidebar-heading-wrapper:not(.collapsed) h3 {
+  color: #fff !important;
+}
+
+/* Header chevron and tray icon. */
+.outline-sidebar-heading-wrapper:not(.collapsed) svg,
+.outline-sidebar-heading-wrapper:not(.collapsed) .pgn__icon,
+.outline-sidebar-heading-wrapper:not(.collapsed) svg path {
+  color: #fff !important;
+  fill: currentColor !important;
+}
+
+/* Header hover remains green. */
+.outline-sidebar-heading-wrapper:not(.collapsed):hover,
+.outline-sidebar-heading-wrapper:not(.collapsed) button:hover,
+.outline-sidebar-heading-wrapper:not(.collapsed) .btn:hover {
+  background-color: #18504d !important;
+  color: #fff !important;
+}
+
+/* END ROWAD OUTLINE STEP 1 — COURSE HEADER */
+
+/* ROWAD FIGMA OUTLINE HIERARCHY */
+
+:root {
+  --rowad-outline-green: #18504d;
+  --rowad-outline-orange: #da8259;
+  --rowad-outline-navy: #1c274c;
+  --rowad-outline-progress-track: #dfe5e4;
+}
+
+/* Real section and subsection progress indicator. */
+#outline-sidebar-outline .rowad-outline-completion-icon {
+  display: block;
+
+  width: 1.125rem;
+  min-width: 1.125rem;
+  height: 1.125rem;
+
+  overflow: visible;
+  color: var(--rowad-outline-orange);
+}
+
+/* Light unused part of a partially completed ring. */
+#outline-sidebar-outline .rowad-outline-completion-track {
+  fill: none;
+  stroke: var(--rowad-outline-progress-track);
+  stroke-width: 2.5;
+}
+
+/* Incomplete ring or completed part of a partial ring. */
+#outline-sidebar-outline .rowad-outline-completion-progress {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 2.5;
+}
+
+/* Completed state shown as Figma's solid orange circle. */
+#outline-sidebar-outline .rowad-outline-completion-complete {
+  fill: currentColor;
+}
+
+/* Section and subsection typography. */
+#outline-sidebar-outline .rowad-section-title,
+#outline-sidebar-outline .rowad-sidebar-section .collapsible-trigger,
+#outline-sidebar-outline .rowad-sidebar-section .pgn__collapsible-trigger {
+  color: var(--rowad-outline-navy) !important;
+}
+
+/*
+ * Keep the hierarchy open inside the same tray:
+ * Section -> Subsection -> Unit.
+ * No tray width or positioning is changed.
+ */
+#outline-sidebar-outline .rowad-section-sequences {
+  margin: 0;
+  padding: 0;
+}
+.text-gray-500 {
+    display: none;
+}
+/* END ROWAD FIGMA OUTLINE HIERARCHY */

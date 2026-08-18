@@ -2,8 +2,6 @@ import PropTypes from 'prop-types';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button, IconButton, Icon } from '@openedx/paragon';
 import {
-  ArrowBack,
-  ArrowForward,
   ChevronLeft,
   ChevronRight,
 } from '@openedx/paragon/icons';
@@ -23,12 +21,9 @@ const PreviousButton = ({
   const { pathname } = useLocation();
   const navLink = pathname.startsWith('/preview') ? `/preview${previousLink}` : previousLink;
 
-  const getPrevArrow = () => {
-    if (isAtTop) {
-      return isRtl(getLocale()) ? ArrowForward : ArrowBack;
-    }
-    return isRtl(getLocale()) ? ChevronRight : ChevronLeft;
-  };
+  const getPrevArrow = () => (
+    isRtl(getLocale()) ? ChevronRight : ChevronLeft
+  );
 
   const prevArrow = getPrevArrow();
 

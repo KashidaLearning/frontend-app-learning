@@ -131,6 +131,7 @@ export const useCourseOutlineSidebar = () => {
 
   return {
     courseId,
+    courseName: course?.title || '',
     unitId,
     currentSidebar,
     shouldDisplayFullScreen,

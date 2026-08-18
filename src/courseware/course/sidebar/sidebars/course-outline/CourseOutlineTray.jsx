@@ -1,27 +1,21 @@
-import { useState } from 'react';
 import classNames from 'classnames';
-import { Button, useToggle, IconButton } from '@openedx/paragon';
+import { IconButton } from '@openedx/paragon';
 import { useIntl } from '@edx/frontend-platform/i18n';
-import {
-  MenuOpen as MenuOpenIcon,
-  ChevronLeft as ChevronLeftIcon,
-} from '@openedx/paragon/icons';
+import { MenuOpen as MenuOpenIcon } from '@openedx/paragon/icons';
 
 import { LOADING } from '@src/constants';
 import PageLoading from '@src/generic/PageLoading';
 import SidebarSection from './components/SidebarSection';
-import SidebarSequence from './components/SidebarSequence';
 import { ID } from './constants';
 import { useCourseOutlineSidebar } from './hooks';
 import messages from './messages';
 
 const CourseOutlineTray = () => {
   const intl = useIntl();
-  const [selectedSection, setSelectedSection] = useState(null);
-  const [isDisplaySequenceLevel, setDisplaySequenceLevel, setDisplaySectionLevel] = useToggle(true);
 
   const {
     courseId,
+    courseName,
     unitId,
     currentSidebar,
     handleToggleCollapse,
@@ -33,40 +27,14 @@ const CourseOutlineTray = () => {
     sequences,
   } = useCourseOutlineSidebar();
 
-  const resolvedSectionId = selectedSection
-    || Object.keys(sections).find(
-      (sectionId) => sections[sectionId].sequenceIds.includes(activeSequenceId),
-    );
-  const sectionsIds = Object.keys(sections);
-  const sequenceIds = sections[resolvedSectionId]?.sequenceIds || [];
-  const backButtonTitle = sections[resolvedSectionId]?.title;
-
-  const handleBackToSectionLevel = () => {
-    setDisplaySectionLevel();
-    setSelectedSection(null);
-  };
-
-  const handleSelectSection = (id) => {
-    setDisplaySequenceLevel();
-    setSelectedSection(id);
-  };
+  const sectionIds = Object.keys(sections);
 
   const sidebarHeading = (
     <div className="outline-sidebar-heading-wrapper sticky d-flex justify-content-between align-self-start align-items-center bg-light-200 p-2.5 pl-4">
-      {isDisplaySequenceLevel && backButtonTitle ? (
-        <Button
-          variant="link"
-          iconBefore={ChevronLeftIcon}
-          className="outline-sidebar-heading p-0 mb-0 text-left text-dark-500"
-          onClick={handleBackToSectionLevel}
-        >
-          {backButtonTitle}
-        </Button>
-      ) : (
-        <span className="outline-sidebar-heading mb-0 h4 text-dark-500">
-          {intl.formatMessage(messages.courseOutlineTitle)}
-        </span>
-      )}
+      <span className="outline-sidebar-heading mb-0 h4 text-dark-500">
+        {courseName || intl.formatMessage(messages.courseOutlineTitle)}
+      </span>
+
       <IconButton
         alt={intl.formatMessage(messages.toggleCourseOutlineTrigger)}
         className="outline-sidebar-toggle-btn flex-shrink-0 text-dark bg-light-200"
@@ -105,25 +73,23 @@ const CourseOutlineTray = () => {
     >
       <section className="outline-sidebar w-100">
         {sidebarHeading}
+
         <ol id="outline-sidebar-outline" className="list-unstyled">
-          {isDisplaySequenceLevel
-            ? sequenceIds.map((sequenceId) => (
-              <SidebarSequence
-                key={sequenceId}
-                courseId={courseId}
-                sequence={sequences[sequenceId]}
-                defaultOpen={sequenceId === activeSequenceId}
-                activeUnitId={unitId}
-              />
-            ))
-            : sectionsIds.map((sectionId) => (
+          {sectionIds.map((sectionId) => {
+            const section = sections[sectionId];
+            const isActiveSection = section.sequenceIds.includes(activeSequenceId);
+
+            return (
               <SidebarSection
                 key={sectionId}
                 courseId={courseId}
-                section={sections[sectionId]}
-                handleSelectSection={handleSelectSection}
+                section={section}
+                sequences={sequences}
+                activeUnitId={unitId}
+                defaultOpen={isActiveSection}
               />
-            ))}
+            );
+          })}
         </ol>
       </section>
     </div>

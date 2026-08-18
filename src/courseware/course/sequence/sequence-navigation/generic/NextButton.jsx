@@ -2,8 +2,6 @@ import PropTypes from 'prop-types';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button, IconButton, Icon } from '@openedx/paragon';
 import {
-  ArrowBack,
-  ArrowForward,
   ChevronLeft,
   ChevronRight,
 } from '@openedx/paragon/icons';
@@ -30,12 +28,9 @@ const NextButton = ({
     </UnitNavigationEffortEstimate>
   ) : buttonText;
 
-  const getNextArrow = () => {
-    if (isAtTop) {
-      return isRtl(getLocale()) ? ArrowBack : ArrowForward;
-    }
-    return isRtl(getLocale()) ? ChevronLeft : ChevronRight;
-  };
+  const getNextArrow = () => (
+    isRtl(getLocale()) ? ChevronLeft : ChevronRight
+  );
 
   const nextArrow = getNextArrow();
 
