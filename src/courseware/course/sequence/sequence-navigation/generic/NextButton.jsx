@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button, IconButton, Icon } from '@openedx/paragon';
 import { ReactComponent as NextArrow } from './../../../../../custom-icons/NextArrow.svg';
+import { ReactComponent as PreviousArrow } from './../../../../../custom-icons/PreviousArrow.svg';
 import { isRtl, getLocale } from '@edx/frontend-platform/i18n';
 
 import UnitNavigationEffortEstimate from '../UnitNavigationEffortEstimate';
