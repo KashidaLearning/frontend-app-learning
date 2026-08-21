@@ -1190,3 +1190,43 @@ button.btn-sm.text-primary-500.px-1.ml-n1 svg path {
     display: none;
 }
 /* END ROWAD FIGMA OUTLINE HIERARCHY */
+
+/* ROWAD LEARNING FIGMA PAGE LAYOUT */
+html,
+body,
+#root,
+#root > div {
+  background-color: #f3f4f4 !important;
+}
+
+.rowad-learning-course-context__inner {
+  display: none !important;
+}
+
+#root main {
+  box-sizing: border-box;
+  width: calc(100% - 48px);
+  max-width: 1240px;
+  padding: 48px !important;
+  margin: 48px auto 72px !important;
+  background-color: #ffffff !important;
+  border-radius: 48px;
+}
+
+@media (max-width: 991.98px) {
+  #root main {
+    width: calc(100% - 40px);
+    padding: 32px !important;
+    margin: 32px auto 56px !important;
+    border-radius: 32px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  #root main {
+    width: calc(100% - 24px);
+    padding: 20px 16px !important;
+    margin: 24px auto 40px !important;
+    border-radius: 24px;
+  }
+}
