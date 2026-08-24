@@ -97,6 +97,22 @@
     }
   }
 
+  // Completion checkmark -- top-left corner, mirroring __icon-badge's
+  // bottom-left placement.
+  &__complete-badge {
+    position: absolute;
+    inset-block-start: 0.5rem;
+    inset-inline-start: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // width: 2rem;
+    // height: 2rem;
+    border-radius: 50%;
+    background-color: #ffffff;
+    // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+
   &__duration-badge {
     position: absolute;
     inset-block-end: 0.5rem;
@@ -114,4 +130,13 @@
     font-size: 0.9rem;
     color: #ffffff;
   }
+}
+
+@media (min-width: 768px) {
+  #courseHome-outline .collapsible-body {
+      padding: 0 0 0 56px;
+  }
+}
+#courseHome-outline .collapsible-body .text-success {
+  color: #05ba05 !important;
 }
