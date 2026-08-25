@@ -6,6 +6,7 @@ import './NonLinearOutline.scss';
 interface Unit {
   id: string;
   title: string;
+  complete?: boolean;
   imageForUnit?: string;
   imageForUnitIcon?: string;
   durationForUnit?: string;
@@ -30,6 +31,7 @@ const UnitGrid: React.FC<Props> = ({ sequenceId, unitIds, units }) => (
           id={unit.id}
           sequenceId={sequenceId}
           title={unit.title}
+          complete={unit.complete}
           imageForUnit={unit.imageForUnit}
           imageForUnitIcon={unit.imageForUnitIcon}
           durationForUnit={unit.durationForUnit}

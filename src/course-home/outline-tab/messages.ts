@@ -36,6 +36,11 @@ const messages = defineMessages({
     defaultMessage: 'Completed section',
     description: 'Text used to describe the green checkmark icon in front of a section title',
   },
+  completedUnit: {
+    id: 'learning.outline.completedUnit',
+    defaultMessage: 'Completed',
+    description: 'Text used to describe the green checkmark icon on a completed unit card in the non-linear outline grid',
+  },
   hiddenSection: {
     id: 'learning.outline.hiddenSection',
     defaultMessage: 'Hidden in Course Outline, accessible via link',

@@ -1,8 +1,43 @@
 .unit-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(10, 1fr);
   gap: 1rem;
   margin-top: 0.5rem;
+
+  > .unit-card {
+    // 5n+1 (1, 6, 11, ...): full-width row
+    &:nth-child(5n+1) {
+      grid-column: 1 / -1;
+    }
+
+    // 5n+2 (2, 7, 12, ...): left card of the 40/60 row
+    &:nth-child(5n+2) {
+      grid-column: span 4;
+    }
+
+    // 5n+3 (3, 8, 13, ...): right card of the 40/60 row
+    &:nth-child(5n+3) {
+      grid-column: span 6;
+    }
+
+    // 5n+4 (4, 9, 14, ...) and 5n (5, 10, 15, ...): the 50/50 row
+    &:nth-child(5n+4),
+    &:nth-child(5n) {
+      grid-column: span 5;
+    }
+  }
+
+  // Below this, a 40%- or 50%-wide card is too narrow to read comfortably
+  // alongside its image -- fall back to one card per row.
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+
+    > .unit-card {
+      &:nth-child(n) {
+        grid-column: 1 / -1;
+      }
+    }
+  }
 }
 
 .unit-card {
@@ -19,17 +54,27 @@
   }
 
   &__image-wrapper {
+    // Fixed (not aspect-ratio-based) so two cards in the same row -- which can be
+    // different widths (40/60 or 50/50) and hold images of different native
+    // aspect ratios -- always line up with equal image height.
+    height: 10rem;
     background-color: #e9ecef;
     line-height: 0;
+
+    @media (max-width: 768px) {
+      height: 14rem;
+    }
   }
 
   &__image {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
+    // Crop to fill the fixed-height box instead of letterboxing/stretching.
+    object-fit: cover;
 
     &--placeholder {
-      aspect-ratio: 16 / 9;
+      height: 100%;
     }
   }
 
@@ -52,20 +97,46 @@
     }
   }
 
+  // Completion checkmark -- top-left corner, mirroring __icon-badge's
+  // bottom-left placement.
+  &__complete-badge {
+    position: absolute;
+    inset-block-start: 0.5rem;
+    inset-inline-start: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // width: 2rem;
+    // height: 2rem;
+    border-radius: 50%;
+    background-color: #ffffff;
+    // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+
   &__duration-badge {
     position: absolute;
     inset-block-end: 0.5rem;
     inset-inline-end: 0.5rem;
     padding: 0.15rem 0.5rem;
     border-radius: 0.25rem;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: #ffffff;
+    color: #000;
     font-size: 0.75rem;
+    font-weight: bold;
   }
 
   &__title {
     padding: 0.5rem 0.75rem;
-    background-color: #f8f9fa;
-    font-size: 0.875rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 0.9rem;
+    color: #ffffff;
   }
+}
+
+@media (min-width: 768px) {
+  #courseHome-outline .collapsible-body {
+      padding: 0 0 0 56px;
+  }
+}
+#courseHome-outline .collapsible-body .text-success {
+  color: #05ba05 !important;
 }
