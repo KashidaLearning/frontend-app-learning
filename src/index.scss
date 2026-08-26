@@ -1258,9 +1258,9 @@ body,
 /* Keep the course outline at the requested desktop width. */
 @media (min-width: 992px) {
   .outline-sidebar-wrapper {
-    width: 23.125rem !important;
-    min-width: 23.125rem !important;
-    flex: 0 0 23.125rem !important;
+    width: 20.125rem !important;
+    min-width: 20.125rem !important;
+    flex: 0 0 20.125rem !important;
   }
 }
 
@@ -1348,4 +1348,184 @@ border:0px !important
 .course-outline-tab section.mb-4 ul li a svg,
 .course-outline-tab section.mb-4 ul li button svg {
   color: #f08f62 !important;
+}
+
+/* ROWAD LEARNING PAGE UI UPDATE */
+
+/* Main Learning content spacing. */
+#root main {
+  padding: 35px !important;
+}
+
+/* Remove spacing and borders from course tabs. */
+#root #courseTabsNavigation {
+  padding: 0 !important;
+}
+
+.course-tabs-navigation,
+.course-tabs-navigation .nav.nav-underline-tabs {
+  border-bottom: 0 !important;
+}
+
+/* Course outline action button. */
+#root
+  .course-outline-tab
+  .raised-card
+  .pgn__card-header-actions
+  a {
+  background: #f08f62 !important;
+  border: 0 !important;
+  border-radius: 12px !important;
+  color: #fff !important;
+  font-size: 14px !important;
+  line-height: 24px !important;
+  padding: 12px 20px !important;
+}
+
+/* Remove the Course Home outline's internal padding. */
+[dir="rtl"] #courseHome-outline .collapsible-body {
+  padding: 0 !important;
+}
+
+#courseHome-outline .collapsible-trigger {
+  font-size: 14px !important;
+  padding: 0 !important;
+}
+
+#courseHome-outline .collapsible-card-lg .collapsible-body,
+#courseHome-outline .collapsible-card-lg .collapsible-trigger {
+  padding: 0 !important;
+}
+
+/* Remove the previous outline borders and radius. */
+[dir="rtl"] #courseHome-outline .pgn__collapsible,
+[dir="rtl"] #courseHome-outline .pgn_collapsible {
+  border-right: 0 !important;
+}
+
+#courseHome-outline .pgn__collapsible,
+#courseHome-outline .pgn_collapsible {
+  border: 0 !important;
+  border-radius: 0 !important;
+  border-bottom:
+    var(--pgn-size-card-border-width)
+    solid
+    var(--pgn-color-card-border-base) !important;
+}
+
+/* Keep only the bottom border on card and collapsible containers. */
+.card,
+.collapsible-card,
+.collapsible-card-lg {
+  border: 0 !important;
+  border-bottom:
+    var(--pgn-size-card-border-width)
+    solid
+    var(--pgn-color-card-border-base) !important;
+}
+
+/* ROWAD COURSE HOME COLLAPSIBLE CHEVRONS */
+
+#courseHome-outline
+  .collapsible-trigger
+  .collapsible-icon
+  > button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 36px !important;
+  height: 36px !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  color: var(--rowad-outline-green, #18504d) !important;
+}
+
+/* Hide Paragon's original plus/minus icon. */
+#courseHome-outline
+  .collapsible-trigger
+  .collapsible-icon
+  > button
+  svg,
+#courseHome-outline
+  .collapsible-trigger
+  .collapsible-icon
+  > button
+  .pgn__icon {
+  display: none !important;
+}
+
+/* Draw the replacement chevron. */
+#courseHome-outline
+  .collapsible-trigger
+  .collapsible-icon
+  > button::before {
+  content: "";
+
+  display: block;
+
+  box-sizing: border-box;
+  width: 9px;
+  height: 9px;
+
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+
+  transform: rotate(-45deg);
+  transition: transform 160ms ease;
+}
+
+/* Arabic collapsed state: point toward the left. */
+[dir="rtl"]
+  #courseHome-outline
+  .collapsible-trigger[aria-expanded="false"]
+  .collapsible-icon
+  > button::before {
+  transform: rotate(135deg);
+}
+
+/* English collapsed state: point toward the right. */
+[dir="ltr"]
+  #courseHome-outline
+  .collapsible-trigger[aria-expanded="false"]
+  .collapsible-icon
+  > button::before {
+  transform: rotate(-45deg);
+}
+
+/* Open section: point downward. */
+#courseHome-outline
+  .collapsible-trigger[aria-expanded="true"]
+  .collapsible-icon
+  > button::before {
+  transform: rotate(45deg);
+}
+
+/* ROWAD LEARNING OUTLINE SPACING UPDATE */
+
+/* Use consistent 14px typography throughout the course outline. */
+#outline-sidebar-outline li {
+  font-size: 14px !important;
+}
+
+/* Remove the directional padding from section triggers. */
+[dir="rtl"]
+  #outline-sidebar-outline
+  li
+  .collapsible-trigger {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+/* Remove Bootstrap's horizontal container spacing. */
+.container-xl {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+/* ROWAD LEARNING SEQUENCE BORDER RESET */
+
+.sequence {
+  border: 0 !important;
+  border-radius: 0 !important;
 }
