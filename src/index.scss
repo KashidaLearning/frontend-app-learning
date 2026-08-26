@@ -911,7 +911,9 @@ button.btn-sm.text-primary-500.px-1.ml-n1 svg path {
   a[aria-current="page"],
 #outline-sidebar-outline
   a.active {
+  overflow: hidden !important;
   background-color: var(--rowad-outline-active) !important;
+  border-radius: 12px !important;
   color: var(--rowad-outline-green) !important;
 }
 
@@ -1253,6 +1255,15 @@ body,
   border: 0 !important;
 }
 
+/* Keep the course outline at the requested desktop width. */
+@media (min-width: 992px) {
+  .outline-sidebar-wrapper {
+    width: 23.125rem !important;
+    min-width: 23.125rem !important;
+    flex: 0 0 23.125rem !important;
+  }
+}
+
 /* Use the Rowad font consistently for Arabic and English. */
 body,
 h1,
@@ -1262,10 +1273,79 @@ h4,
 h5,
 h6,
 p,
+span,
+label,
+li,
+th,
+td,
 a,
 button,
 input,
 select,
 textarea {
   font-family: var(--rowad-font-family) !important;
+}
+/* ROWAD FIGMA OUTLINE - SEPARATE ROUNDED ROWS */
+
+/* Remove Paragon's border around each hierarchy group. */
+#outline-sidebar-outline .collapsible-card-lg {
+  overflow: visible !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Use Figma's 4px spacing instead of connected rows. */
+#outline-sidebar-outline,
+#outline-sidebar-outline ol {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+#outline-sidebar-outline li {
+  margin-bottom: 0 !important;
+}
+
+/* Section and subsection rows. */
+#outline-sidebar-outline .collapsible-trigger {
+  overflow: hidden !important;
+  border: 1px solid #b7c9c8 !important;
+  border-radius: 12px !important;
+}
+
+/* Unit rows. */
+#outline-sidebar-outline li > a,
+#outline-sidebar-outline li > button {
+  overflow: hidden !important;
+  border: 1px solid #e8eeed !important;
+  border-radius: 12px !important;
+}
+.course-sidebar-section {
+border:0px !important
+}
+
+/* Remove the legacy Bootstrap divider above unit rows. */
+#outline-sidebar-outline li.border-top {
+  border-top: 0 !important;
+}
+/* ROWAD COURSE OUTLINE TAB — ORANGE ACTIONS */
+
+#root
+  .course-outline-tab
+  .raised-card
+  .pgn__card-header-actions
+  a {
+  background-color: #f08f62 !important;
+}
+
+.course-outline-tab section.mb-4 ul li a,
+.course-outline-tab section.mb-4 ul li button {
+  color: #f08f62 !important;
+}
+
+.course-outline-tab section.mb-4 ul li a svg,
+.course-outline-tab section.mb-4 ul li button svg {
+  color: #f08f62 !important;
 }
