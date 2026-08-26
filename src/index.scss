@@ -1230,3 +1230,42 @@ body,
     border-radius: 24px;
   }
 }
+/* ROWAD LEARNING UI ENHANCEMENTS */
+
+:root {
+  --rowad-font-family:
+    var(--font-noto-kufi-arabic, "Noto Kufi Arabic"),
+    Arial,
+    sans-serif;
+
+  --pgn-typography-font-family-base: var(--rowad-font-family);
+  --pgn-typography-headings-font-family: var(--rowad-font-family);
+}
+
+/* Set the Learning MFE header height. */
+.rowad-mfe-header-shell {
+  height: 100px !important;
+  min-height: 100px !important;
+}
+
+/* Remove the course-context border. */
+.rowad-learning-course-context {
+  border: 0 !important;
+}
+
+/* Use the Rowad font consistently for Arabic and English. */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+button,
+input,
+select,
+textarea {
+  font-family: var(--rowad-font-family) !important;
+}
