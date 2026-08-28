@@ -1508,15 +1508,18 @@ border:0px !important
   font-size: 14px !important;
 }
 
+
 /* Remove the directional padding from section triggers. */
 [dir="rtl"]
   #outline-sidebar-outline
   li
   .collapsible-trigger {
-  padding-right: 0 !important;
-  padding-left: 0 !important;
+padding-left: 15px !important;
+    padding-right: 15px !important;
 }
-
+[dir=rtl] #outline-sidebar-outline .collapsible-body ol li>a {
+    padding: 15px !important;
+}
 /* Remove Bootstrap's horizontal container spacing. */
 .container-xl {
   padding-right: 0 !important;
@@ -1528,4 +1531,24 @@ border:0px !important
 .sequence {
   border: 0 !important;
   border-radius: 0 !important;
+}
+
+/* ROWAD RESUME CARD ARABIC FONT */
+
+[dir="rtl"]
+  #root
+  .course-outline-tab
+  .raised-card
+  .pgn__card-header-title-md,
+[dir="rtl"]
+  #root
+  .course-outline-tab
+  .raised-card
+  .pgn__card-header-title-sm {
+  font-family:
+    "DIN Next LT Arabic",
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif !important;
 }
