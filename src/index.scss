@@ -1533,22 +1533,32 @@ padding-left: 15px !important;
   border-radius: 0 !important;
 }
 
-/* ROWAD RESUME CARD ARABIC FONT */
+/* ROWAD GLOBAL LEARNING TYPOGRAPHY */
 
-[dir="rtl"]
-  #root
-  .course-outline-tab
-  .raised-card
-  .pgn__card-header-title-md,
-[dir="rtl"]
-  #root
-  .course-outline-tab
-  .raised-card
-  .pgn__card-header-title-sm {
-  font-family:
-    "DIN Next LT Arabic",
+:root {
+  --rowad-learning-font-ltr:
+    "Rowad Noto Sans",
     "Helvetica Neue",
-    Helvetica,
     Arial,
-    sans-serif !important;
+    sans-serif;
+
+  --rowad-learning-font-rtl:
+    "Rowad Noto Kufi Arabic",
+    "Rowad Noto Sans",
+    sans-serif;
+}
+
+/*
+ * Open edX core.min.css assigns Inter !important directly
+ * to every element. Target every Learning element with a
+ * more specific rule so typography works in both languages.
+ */
+html[dir="ltr"] body,
+html[dir="ltr"] body * {
+  font-family: var(--rowad-learning-font-ltr) !important;
+}
+
+html[dir="rtl"] body,
+html[dir="rtl"] body * {
+  font-family: var(--rowad-learning-font-rtl) !important;
 }
