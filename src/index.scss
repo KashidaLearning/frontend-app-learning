@@ -1417,6 +1417,7 @@ border:0px !important
 .card,
 .collapsible-card,
 .collapsible-card-lg {
+  display: block !important;
   border: 0 !important;
   border-bottom:
     var(--pgn-size-card-border-width)
@@ -1518,7 +1519,7 @@ padding-left: 15px !important;
     padding-right: 15px !important;
 }
 [dir=rtl] #outline-sidebar-outline .collapsible-body ol li>a {
-    padding: 15px !important;
+    padding: 15px 25px !important;
 }
 /* Remove Bootstrap's horizontal container spacing. */
 .container-xl {
