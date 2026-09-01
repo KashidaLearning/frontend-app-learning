@@ -1563,3 +1563,278 @@ html[dir="rtl"] body,
 html[dir="rtl"] body * {
   font-family: var(--rowad-learning-font-rtl) !important;
 }
+
+
+/* ROWAD LEARNING MOBILE VIEWPORT FIX */
+@media (max-width: 575.98px) {
+  #root {
+    width: 100%;
+    max-width: 100vw;
+    min-width: 0;
+  }
+
+  #toast-root {
+    left: 0 !important;
+    right: auto !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+  }
+
+  #root .app-container,
+  #root .rowad-learning-course-context,
+  #root #main-content {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  /* Restore the height expected by the mobile Rowad header. */
+  #root .rowad-mfe-header-shell {
+    height: 112px !important;
+    min-height: 112px !important;
+  }
+
+  /*
+   * This final rule must override the later desktop-style
+   * `padding: 35px !important` declaration.
+   */
+  #root main {
+    box-sizing: border-box;
+    width: calc(100vw - 24px) !important;
+    max-width: calc(100vw - 24px) !important;
+    min-width: 0;
+    margin: 24px auto 40px !important;
+    padding: 20px 16px !important;
+    border-radius: 24px;
+  }
+
+  #root #main-content,
+  #root #main-content > * {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  /* Instructor/staff toolbar. */
+  #root .bg-primary.text-white,
+  #root .bg-primary.text-white .container-xl {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  #root .bg-primary.text-white .container-xl {
+    display: flex !important;
+    flex-direction: column;
+    align-items: stretch !important;
+    padding-inline: 12px !important;
+    gap: 8px;
+  }
+
+  #root .bg-primary.text-white .row {
+    width: 100% !important;
+    max-width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    flex-wrap: wrap !important;
+  }
+
+  #root .bg-primary.text-white a,
+  #root .bg-primary.text-white button {
+    max-width: 100%;
+    white-space: normal !important;
+  }
+
+  /* Course navigation tabs scroll inside their own area. */
+  #root #courseTabsNavigation,
+  #root #courseTabsNavigation .container-xl,
+  #root #courseTabsNavigation .nav-bar,
+  #root #courseTabsNavigation .nav-menu {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  #root #courseTabsNavigation .nav-menu {
+    flex: 1 1 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #root #courseTabsNavigation .nav.nav-underline-tabs {
+    width: max-content;
+    min-width: 100%;
+    max-width: none;
+    flex-wrap: nowrap !important;
+  }
+
+  #root #courseTabsNavigation .nav-link {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  /* Course Home cards and Bootstrap grid rows. */
+  #root .course-outline-tab.row {
+    width: 100% !important;
+    max-width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  #root .course-outline-tab > [class*="col"] {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    flex: 0 0 100%;
+  }
+
+  /* Unit/sequence page. */
+  #root .rowad-courseware-page,
+  #root .rowad-courseware-shell,
+  #root .rowad-courseware-card,
+  #root .rowad-courseware-toolbar,
+  #root .sequence-container,
+  #root .sequence,
+  #root .unit-container,
+  #root .sequence-navigation-container,
+  #root .sequence-navigation {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  #root .rowad-courseware-shell {
+    padding-inline: 0 !important;
+  }
+
+  #root .rowad-courseware-card {
+    padding: 12px !important;
+  }
+
+  #root .outline-sidebar-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    flex: 1 1 100% !important;
+  }
+}
+
+
+/* ROWAD MOBILE UNIT LAYOUT CORRECTION */
+
+/*
+ * Below desktop size, the outline is a tray—not a column beside the
+ * sequence. Bootstrap's flex-row utility and the custom relative
+ * position must not override that behavior.
+ */
+@media (max-width: 1199.98px) {
+  #root .sequence-container.d-inline-flex.flex-row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  #root .sequence-container > .sequence {
+    display: block;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+  }
+
+  /*
+   * Restore the full-screen tray requested by
+   * shouldDisplayFullScreen in CourseOutlineTray.jsx.
+   */
+  #root .outline-sidebar-wrapper.fixed-top {
+    position: fixed !important;
+    z-index: 1050 !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    min-width: 0 !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    margin: 0 !important;
+    flex: none !important;
+    overflow-y: auto !important;
+    background: #fff !important;
+  }
+
+  #root .outline-sidebar-wrapper.fixed-top .outline-sidebar {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 100%;
+  }
+
+  #root
+    .outline-sidebar-wrapper.fixed-top
+    .outline-sidebar-heading-wrapper {
+    position: sticky !important;
+    z-index: 2;
+    top: 0;
+    width: 100%;
+  }
+}
+
+/* Correct the customized unit navigation on phones. */
+@media (max-width: 575.98px) {
+  #root .top-unit-navigation {
+    display: flex !important;
+    flex-flow: row nowrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+    max-width: 100% !important;
+  }
+
+  #root .top-unit-navigation .previous-button,
+  #root .top-unit-navigation .next-button {
+    position: static !important;
+    transform: none !important;
+    margin: 0 !important;
+  }
+
+  /*
+   * Bottom Previous and Next controls belong in one horizontal row,
+   * with enough width for their labels.
+   */
+  #root .unit-navigation {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    align-items: stretch !important;
+    gap: 8px !important;
+  }
+
+  #root .unit-navigation .previous-button,
+  #root .unit-navigation .next-button {
+    position: static !important;
+    transform: none !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding-inline: 12px !important;
+    white-space: normal !important;
+  }
+}
+
+
+/* ROWAD OUTLINE BELOW FIXED HEADER */
+@media (max-width: 1100px) {
+  #root .outline-sidebar-wrapper.fixed-top {
+    top: 100px !important;
+    bottom: 0 !important;
+    height: calc(100dvh - 100px) !important;
+    max-height: calc(100dvh - 100px) !important;
+  }
+}
