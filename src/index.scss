@@ -1657,18 +1657,28 @@ html[dir="rtl"] body * {
   }
 
   #root #courseTabsNavigation .nav-menu {
+    position: relative;
     flex: 1 1 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    overscroll-behavior-inline: contain;
-    -webkit-overflow-scrolling: touch;
+    overflow: visible !important;
   }
 
   #root #courseTabsNavigation .nav.nav-underline-tabs {
-    width: max-content;
-    min-width: 100%;
-    max-width: none;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
     flex-wrap: nowrap !important;
+    overflow: visible !important;
+  }
+
+  #root #courseTabsNavigation .pgn__dropdown,
+  #root #courseTabsNavigation .dropdown {
+    position: relative;
+    overflow: visible !important;
+  }
+
+  #root #courseTabsNavigation .dropdown-menu {
+    z-index: 1080 !important;
+    max-width: calc(100vw - 48px);
   }
 
   #root #courseTabsNavigation .nav-link {
