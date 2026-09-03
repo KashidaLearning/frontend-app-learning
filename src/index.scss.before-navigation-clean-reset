@@ -1,0 +1,991 @@
+@use "@openedx/paragon/styles/css/core/custom-media-breakpoints" as paragonCustomMediaBreakpoints;
+
+@import "~@edx/frontend-component-header/dist/index";
+
+
+#root {
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
+  }
+  
+  main {
+    flex-grow: 1;
+  }
+  #main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  header {
+    flex: 0 0 auto;
+
+    .logo {
+      display: block;
+      box-sizing: content-box;
+      position: relative;
+      top: 0.1em;
+      height: 1.75rem;
+      margin-right: 1rem;
+      img {
+        display: block;
+        height: 100%;
+      }
+    }
+  }
+
+  footer {
+    flex: 0;
+  }
+}
+
+.nav-underline-tabs {
+  margin: 0 0 -1px;
+
+  .nav-link {
+    border-bottom: 4px solid transparent;
+    border-top: 4px solid transparent;
+    color: var(--pgn-color-gray-700);
+
+    // temporary until we can remove .btn class from dropdowns
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+
+    &:hover,
+    &:focus,
+    &.active {
+      font-weight: var(--pgn-typography-font-weight-normal);
+      color: var(--pgn-color-primary-500);
+      border-bottom-color: var(--pgn-color-primary-500);
+    }
+  }
+}
+
+.pgn__menu-select .pgn__menu-select-popup {
+  position: static;
+}
+
+.sequence-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-bottom: 4rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.sequence {
+  @media (--pgn-size-breakpoint-min-width-sm) {
+    border: solid 1px #eaeaea;
+    border-radius: 4px;
+  }
+}
+
+.sequence-navigation-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.notification-btn {
+  @media (--pgn-size-breakpoint-max-width-xs) {
+    height: 3rem;
+  }
+}
+
+.sequence-navigation {
+  display: flex;
+  flex-grow: 1;
+
+  @media (--pgn-size-breakpoint-max-width-xs) {
+    max-width: 100%;
+  }
+
+  @media (--pgn-size-breakpoint-min-width-sm) {
+    margin: -1px -1px 0;
+  }
+
+  @media (--pgn-size-breakpoint-max-width-xs) {
+    width: 100% !important;
+  }
+
+  .btn {
+    flex-grow: 1;
+    display: inline-flex;
+    border-radius: 0;
+    border: solid 1px #eaeaea;
+    border-left-width: 0;
+    position: relative;
+    font-weight: 400;
+    padding: 0 0.375rem;
+    height: 3rem;
+    justify-content: center;
+    align-items: center;
+    color: var(--pgn-color-gray-500);
+    white-space: nowrap;
+
+    &:hover,
+    &:focus,
+    &.active {
+      color: var(--pgn-color-gray-700);
+    }
+
+    &:focus {
+      z-index: 1;
+    }
+
+    &.active {
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--pgn-color-primary-base);
+      }
+    }
+
+    &.complete {
+      background-color: #eef7e5;
+      color: var(--pgn-color-success-base);
+    }
+
+    &:first-child {
+      border-left-width: 0;
+    }
+
+    &:last-child {
+      border-right-width: 0;
+    }
+  }
+
+  .sequence-navigation-tabs-container {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 100%;
+    display: flex;
+    // min-width 0 prevents the flex item from overflowing the parent container
+    // https://dev.to/martyhimmel/quick-tip-to-stop-flexbox-from-overflowing-peb
+    min-width: 0;
+  }
+
+  .sequence-navigation-tabs {
+    overflow: auto;
+    .btn {
+      flex-basis: 100%;
+      min-width: 3rem;
+    }
+  }
+
+  .navigation-tab-width-xl {
+    max-width: 47rem;
+  }
+
+  .navigation-tab-width-large {
+    max-width: 28rem;
+  }
+
+  .navigation-tab-width-medium{
+    max-width: 23.5rem;
+  }
+
+  .sequence-navigation-dropdown {
+    .dropdown-menu .btn {
+      flex-basis: 100%;
+      min-width: 4rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-start;
+      border-right: 0;
+
+      & + .btn {
+        border-top: 0;
+      }
+
+      .unit-title {
+        flex-grow: 1;
+        text-align: left;
+        overflow: hidden;
+        min-width: 0;
+        margin: 0 1rem;
+        text-overflow: ellipsis;
+        color: var(--pgn-color-gray-700);
+      }
+
+      &.active {
+        .unit-icon {
+          color: var(--pgn-color-primary-500);
+        }
+
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: 0px;
+          left: 0px;
+          top: 0px;
+          right: auto;
+          width: 2px;
+          height: auto;
+          background: var(--pgn-color-primary-base);
+        }
+      }
+    }
+
+    .dropdown-item {
+      &.active {
+        // This is un-doing the default react-bootstrap styling for active dropdown-item elements.
+        background-color: transparent;
+      }
+    }
+  }
+
+  .previous-btn,
+  .next-btn {
+    border: 1px solid var(--pgn-color-light-400) !important;
+    color: var(--pgn-color-gray-700);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (--pgn-size-breakpoint-max-width-sm) {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    @media (--pgn-size-breakpoint-min-width-sm) {
+      min-width: fit-content;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  .previous-btn {
+    border-left-width: 0;
+    margin-left: 0;
+
+    @media (--pgn-size-breakpoint-min-width-sm) {
+      border-left-width: 1px;
+      border-top-left-radius: 4px;
+    }
+  }
+
+  .next-btn {
+    border-left-width: 1px;
+    border-right-width: 0;
+
+    @media (--pgn-size-breakpoint-min-width-sm) {
+      border-top-right-radius: 4px;
+      border-right-width: 1px;
+    }
+  }
+}
+
+.unit-container {
+  padding-top: 0;
+  padding-bottom: 2rem;
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (--pgn-size-breakpoint-min-width-sm) {
+    padding-left: var(--pgn-spacing-grid-gutter-width);
+    padding-right: var(--pgn-spacing-grid-gutter-width);
+  }
+
+  @media (min-width: 830px) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+.unit-iframe-wrapper {
+  margin-top: 0;
+
+  // Some XBlocks (such as xblock-drag-and-drop-v2) rely on the viewport width
+  // to determine their layout on mobile. This is problematic because the
+  // viewport width may not be the same as the width of the iframe. To fix this,
+  // here we compensate for the padding of the parent div with "container-xl"
+  // class to ensure that the viewport width is the same as the width of the
+  // iframe.
+  margin-left: calc(var(--pgn-spacing-grid-gutter-width) * -0.5);
+  margin-right: calc(var(--pgn-spacing-grid-gutter-width) * -0.5);
+
+  margin-bottom: 2rem;
+
+  @media (min-width: 830px) {
+    margin: 0 -40px 2rem;
+  }
+}
+
+#unit-iframe {
+  width: 100%;
+  border: none;
+  display: block;
+}
+
+.unit-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  max-width: 640px;
+  margin: 0 auto;
+
+  @media (--pgn-size-breakpoint-max-width-xs) {
+    flex-direction: column;
+    gap: var(--pgn-spacing-spacer-base);
+  }
+
+  .previous-button,
+  .next-button {
+    border-radius: 4px;
+
+    &:focus:before {
+      border-radius: 6px;
+    }
+  }
+}
+
+.top-unit-navigation {
+  display: flex;
+  max-width: 100%;
+  gap: 5px;
+  justify-content: flex-end;
+
+  .next-button,
+  .previous-button {
+    font-size: 1.5rem;
+  }
+}
+
+// This class forces any modals using 'modal-lti' as their dialogClassName to take up the whole
+// window (retaining padding around the edge).  Bootstrap modals don't have a full-screen
+// size like this.  Because of the hack below around react-focus-on's div, it would be better long-term to pull this into Paragon and perhaps call it "modal-full" or something like that.
+.modal-lti {
+  height: 100%;
+  max-width: 100% !important;
+
+  // I don't like this.  We need to set a height of 100% on a div created by react-focus-on, a
+  // package we use in our Modal.  That div has no class name or ID, so instead we're uniquely
+  // identifying it by based on a unique attribute it has which its siblings don't share.
+  > div[data-focus-lock-disabled="false"] {
+    height: 100%;
+  }
+
+  // Along with setting the height of modal-content's parent div from react-focus-on, we need to
+  // set modal-content's height as well to get the modal to expand to full-screen height.
+  .modal-content {
+    height: 100%;
+  }
+}
+
+.greyed-out {
+  opacity: 0.3;
+}
+
+.locked-overlay {
+  opacity: 0.3;
+  pointer-events: none;
+
+  &.grades {
+    overflow: hidden;
+    max-height: 852px;
+    @media screen and (min-width: 992px) {
+      max-height: 920px;
+    }
+  }
+}
+
+.raised-card {
+  border: 0 !important;
+  box-shadow: 0 .0625rem .125rem rgba(0, 0, 0, .2) !important;
+}
+
+.icon-hover {
+  &:hover {
+    color: var(--pgn-color-primary-500) !important;
+    background-color: var(--pgn-color-light-300) !important;
+  }
+}
+
+.sticky-top {
+  position: sticky;
+  top: 0;
+}
+
+.min-height-700 {
+  min-height: 700px;
+}
+
+.size-4r {
+  width: 4rem !important;
+  height: 4rem !important;
+}
+
+.size-56px {
+  width: 56px !important;
+  height: 56px !important;
+}
+
+@media (--pgn-size-breakpoint-max-width-xs) {
+  .course-outline-tab .pgn__card {
+    .pgn__card-header {
+      display: block;
+  
+      .pgn__card-header-content {
+        margin-top: 0;
+      }
+    }
+    
+    .pgn__card-header-actions {
+      margin-left: 0;
+    }
+  }
+}
+
+// Import component-specific sass files
+@import "courseware/course/celebration/CelebrationModal.scss";
+@import "courseware/course/sidebar/sidebars/discussions/Discussions.scss";
+@import "courseware/course/sidebar/sidebars/notifications/NotificationIcon.scss";
+@import "shared/streak-celebration/StreakCelebrationModal.scss";
+@import "courseware/course/content-tools/calculator/calculator.scss";
+@import "courseware/course/content-tools/contentTools.scss";
+@import "course-home/dates-tab/timeline/Day.scss";
+@import "course-home/outline-tab/widgets/ProctoringInfoPanel.scss";
+@import "course-home/outline-tab/widgets/FlagButton.scss";
+@import "course-home/progress-tab/course-completion/CompletionDonutChart.scss";
+@import "course-home/progress-tab/grades/course-grade/GradeBar.scss";
+@import "courseware/course/course-exit/CourseRecommendations";
+@import "product-tours/newUserCourseHomeTour/NewUserCourseHomeTourModal.scss";
+@import "course-home/courseware-search/courseware-search.scss";
+@import "course-tabs/course-tabs-navigation.scss";
+@import "courseware/course/sidebar/common/SidebarBase.scss";
+@import "courseware/course/sidebar/sidebars/course-outline/CourseOutlineTray.scss";
+
+/* ROWAD LEARNING COURSE CONTEXT */
+.rowad-learning-course-context {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid rgba(23, 53, 62, 0.12);
+}
+
+.rowad-learning-course-context__inner {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  width: 100%;
+  min-width: 0;
+  padding: 0.75rem 1.5rem;
+}
+
+.rowad-learning-course-context__code {
+  flex: 0 0 auto;
+  color: #65757b;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.rowad-learning-course-context__title {
+  min-width: 0;
+  overflow: hidden;
+  color: #17353e;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+[dir="rtl"] .rowad-learning-course-context__inner {
+  text-align: right;
+}
+
+@media (max-width: 575.98px) {
+  .rowad-learning-course-context__inner {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.125rem;
+    padding: 0.625rem 1rem;
+  }
+
+  .rowad-learning-course-context__title {
+    width: 100%;
+  }
+}
+
+/* ROWAD COURSEWARE LAYOUT - STEP 2 */
+
+/*
+ * Applied only to the Course tab. Other pages such as Progress,
+ * Dates, Instructor, Discussions, and course Home remain unchanged.
+ */
+.rowad-courseware-page {
+  flex: 1 0 auto;
+  width: 100%;
+  background-color: #f4f6f4;
+}
+
+/*
+ * Make the courseware area wider than the default Bootstrap
+ * container while preserving responsive side spacing.
+ */
+.rowad-courseware-shell {
+  width: 100%;
+  max-width: 1600px !important;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 3vw, 3.5rem);
+  padding-bottom: 3rem;
+}
+
+/*
+ * The main white rounded container from the target design.
+ */
+.rowad-courseware-card {
+  width: 100%;
+  min-width: 0;
+  min-height: 36rem;
+  padding: clamp(1.25rem, 2vw, 2rem);
+  background-color: #fff;
+  border: 1px solid #e3e8e5;
+  border-radius: 1.5rem;
+  box-shadow: 0 0.375rem 1.5rem rgba(23, 53, 62, 0.06);
+}
+
+/*
+ * The breadcrumb, mobile outline trigger, chat and discussion
+ * controls remain functional inside the new container.
+ */
+.rowad-courseware-toolbar {
+  width: 100%;
+  min-width: 0;
+  margin-top: 0 !important;
+}
+
+/*
+ * Allow the course content column to shrink correctly instead of
+ * forcing horizontal page scrolling.
+ */
+.rowad-courseware-card .sequence-container {
+  width: 100%;
+  min-width: 0;
+  align-items: stretch;
+}
+
+.rowad-courseware-card .sequence {
+  flex: 1 1 auto;
+  width: auto !important;
+  min-width: 0;
+}
+
+.rowad-courseware-card .unit-container {
+  min-width: 0;
+}
+
+/*
+ * Desktop two-column structure:
+ *   outline = approximately 300px
+ *   content = remaining available width
+ *
+ * Logical margin properties automatically support LTR and RTL.
+ */
+@media (min-width: 1200px) {
+  .rowad-courseware-card .outline-sidebar-wrapper {
+    flex: 0 0 18.75rem;
+    width: 18.75rem;
+    max-width: 18.75rem;
+    margin: 0 !important;
+    margin-inline-end: 1.5rem !important;
+  }
+
+  .rowad-courseware-card .outline-sidebar {
+    width: 100%;
+    min-width: 0;
+  }
+
+  /*
+   * When the outline is collapsed, retain only its compact trigger
+   * and allow the content column to use the released space.
+   */
+  .rowad-courseware-card
+    .sequence-container
+    > .outline-sidebar-heading-wrapper.collapsed {
+    flex: 0 0 auto;
+    margin: 0 !important;
+    margin-inline-end: 1.25rem !important;
+    border-radius: 0.75rem;
+  }
+}
+
+/*
+ * Below desktop width Open edX keeps using its existing full-screen
+ * outline tray. We only adjust the surrounding white container.
+ */
+@media (max-width: 1199.98px) {
+  .rowad-courseware-shell {
+    max-width: 100% !important;
+    padding-inline: 1.25rem;
+    padding-bottom: 2rem;
+  }
+
+  .rowad-courseware-card {
+    min-height: 30rem;
+    padding: 1.25rem;
+    border-radius: 1.25rem;
+  }
+
+  .rowad-courseware-card .sequence-container {
+    display: block !important;
+  }
+}
+
+/*
+ * Small phones: keep safe horizontal spacing and avoid overflow.
+ */
+@media (max-width: 575.98px) {
+  .rowad-courseware-page {
+    background-color: #f4f6f4;
+  }
+
+  .rowad-courseware-shell {
+    padding-inline: 0.75rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .rowad-courseware-card {
+    min-height: 24rem;
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+
+  .rowad-courseware-toolbar {
+    margin-bottom: 1rem !important;
+  }
+}
+
+/* ROWAD UNIT NAVIGATION - FINAL */
+
+:root {
+  --rowad-unit-green: #0b4a40;
+  --rowad-unit-green-hover: #063b34;
+  --rowad-unit-orange: #f28b3c;
+}
+
+/* ==========================================================
+   SHARED TOP AND BOTTOM NAVIGATION
+   ========================================================== */
+
+.top-unit-navigation,
+.unit-navigation {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+}
+
+.top-unit-navigation {
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+}
+
+.unit-navigation {
+  width: fit-content !important;
+  margin: 1.75rem auto 0 !important;
+}
+
+/* Apply identical styling to all four navigation buttons. */
+.top-unit-navigation .previous-button,
+.top-unit-navigation .next-button,
+.unit-navigation .previous-button,
+.unit-navigation .next-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  flex: 0 0 2.25rem !important;
+  box-sizing: border-box !important;
+
+  width: 2.25rem !important;
+  min-width: 2.25rem !important;
+  max-width: 2.25rem !important;
+
+  height: 2.25rem !important;
+  min-height: 2.25rem !important;
+  max-height: 2.25rem !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  overflow: hidden !important;
+
+  background-color: var(--rowad-unit-green) !important;
+  border: 1px solid var(--rowad-unit-green) !important;
+  border-radius: 0.5rem !important;
+  box-shadow: none !important;
+
+  color: #fff !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  text-decoration: none !important;
+
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease !important;
+}
+
+.top-unit-navigation .previous-button:hover,
+.top-unit-navigation .next-button:hover,
+.unit-navigation .previous-button:hover,
+.unit-navigation .next-button:hover {
+  background-color: var(--rowad-unit-green-hover) !important;
+  border-color: var(--rowad-unit-green-hover) !important;
+  color: #fff !important;
+  transform: translateY(-1px);
+}
+
+.top-unit-navigation .previous-button:focus,
+.top-unit-navigation .next-button:focus,
+.unit-navigation .previous-button:focus,
+.unit-navigation .next-button:focus {
+  outline: 3px solid rgba(242, 139, 60, 0.35) !important;
+  outline-offset: 2px !important;
+  box-shadow: none !important;
+}
+
+/* Remove Paragon icon spacing. */
+.top-unit-navigation .btn-icon-before,
+.top-unit-navigation .btn-icon-after,
+.unit-navigation .btn-icon-before,
+.unit-navigation .btn-icon-after {
+  margin: 0 !important;
+}
+
+/* White centered arrow icons. */
+.top-unit-navigation svg,
+.unit-navigation svg,
+.top-unit-navigation .pgn__icon,
+.unit-navigation .pgn__icon {
+  display: block !important;
+  flex: 0 0 1.125rem !important;
+
+  width: 1.125rem !important;
+  height: 1.125rem !important;
+
+  margin: 0 !important;
+
+  color: #fff !important;
+  fill: currentColor !important;
+  font-size: 1.125rem !important;
+}
+
+/* Remove text and effort-estimate layout from bottom buttons. */
+.unit-navigation .previous-button,
+.unit-navigation .next-button {
+  white-space: nowrap !important;
+}
+
+.unit-navigation .unit-navigation-effort-estimate {
+  display: contents !important;
+}
+
+/* Disabled first/last-unit controls. */
+.top-unit-navigation .previous-button:disabled,
+.top-unit-navigation .next-button:disabled,
+.unit-navigation .previous-button:disabled,
+.unit-navigation .next-button:disabled,
+.top-unit-navigation [aria-disabled="true"],
+.unit-navigation [aria-disabled="true"] {
+  background-color: #9caaa7 !important;
+  border-color: #9caaa7 !important;
+  color: #fff !important;
+  cursor: not-allowed !important;
+  opacity: 0.65 !important;
+  transform: none !important;
+}
+
+/* ==========================================================
+   COLLAPSED COURSE-OUTLINE TOGGLE
+   ========================================================== */
+
+/*
+ * The wrapper is removed from the flex-column calculation.
+ * This lets the white unit card use the available width and places
+ * the toggle inside the card beside the unit title.
+ */
+.sequence-container {
+  position: relative !important;
+}
+
+.sequence-container > .sequence {
+  flex: 1 1 100% !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+.sequence-container
+  > .outline-sidebar-heading-wrapper.collapsed {
+  position: absolute !important;
+  z-index: 5 !important;
+
+  inset-inline-start: 1.25rem !important;
+  inset-inline-end: auto !important;
+  top: 1.75rem !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  flex: none !important;
+  box-sizing: border-box !important;
+
+  width: 2.25rem !important;
+  min-width: 2.25rem !important;
+  max-width: 2.25rem !important;
+
+  height: 2.25rem !important;
+  min-height: 2.25rem !important;
+  max-height: 2.25rem !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  overflow: hidden !important;
+
+  background-color: var(--rowad-unit-green) !important;
+  border: 1px solid var(--rowad-unit-green) !important;
+  border-radius: 0.5rem !important;
+  box-shadow: none !important;
+}
+
+/*
+ * On wide screens, place the toggle immediately beside the centered
+ * unit-title/content column instead of against the outside border.
+ */
+@media (min-width: 1280px) {
+  .sequence-container
+    > .outline-sidebar-heading-wrapper.collapsed {
+    inset-inline-start:
+      calc((100% - 64rem) / 2 - 2.375rem) !important;
+  }
+}
+
+.sequence-container
+  > .outline-sidebar-heading-wrapper.collapsed
+  button,
+.sequence-container
+  > .outline-sidebar-heading-wrapper.collapsed
+  .btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  box-sizing: border-box !important;
+  width: 100% !important;
+  min-width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: inherit !important;
+  box-shadow: none !important;
+  color: #fff !important;
+}
+
+.sequence-container
+  > .outline-sidebar-heading-wrapper.collapsed:hover {
+  background-color: var(--rowad-unit-green-hover) !important;
+  border-color: var(--rowad-unit-green-hover) !important;
+}
+
+.sequence-container
+  > .outline-sidebar-heading-wrapper.collapsed
+  svg,
+.sequence-container
+  > .outline-sidebar-heading-wrapper.collapsed
+  .pgn__icon {
+  width: 1.125rem !important;
+  height: 1.125rem !important;
+  margin: 0 !important;
+
+  color: #fff !important;
+  fill: currentColor !important;
+}
+
+/* Prevent the old LTR transform from flipping the entire green button. */
+[dir="ltr"]
+  .outline-sidebar-heading-wrapper.collapsed,
+[dir="rtl"]
+  .outline-sidebar-heading-wrapper.collapsed {
+  transform: none !important;
+}
+
+/* ==========================================================
+   TABLET AND MOBILE
+   ========================================================== */
+
+@media (max-width: 1199.98px) {
+  .sequence-container
+    > .outline-sidebar-heading-wrapper.collapsed {
+    position: static !important;
+    width: 2.25rem !important;
+    min-width: 2.25rem !important;
+    height: 2.25rem !important;
+    min-height: 2.25rem !important;
+    margin-bottom: 1rem !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .top-unit-navigation,
+  .unit-navigation {
+    gap: 0.375rem !important;
+  }
+
+  .top-unit-navigation .previous-button,
+  .top-unit-navigation .next-button,
+  .unit-navigation .previous-button,
+  .unit-navigation .next-button,
+  .sequence-container
+    > .outline-sidebar-heading-wrapper.collapsed {
+    flex-basis: 2rem !important;
+
+    width: 2rem !important;
+    min-width: 2rem !important;
+    max-width: 2rem !important;
+
+    height: 2rem !important;
+    min-height: 2rem !important;
+    max-height: 2rem !important;
+
+    border-radius: 0.4375rem !important;
+  }
+
+  .top-unit-navigation svg,
+  .unit-navigation svg,
+  .outline-sidebar-heading-wrapper.collapsed svg {
+    width: 1rem !important;
+    height: 1rem !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .top-unit-navigation .previous-button,
+  .top-unit-navigation .next-button,
+  .unit-navigation .previous-button,
+  .unit-navigation .next-button {
+    transition: none !important;
+  }
+}
+
+/* END ROWAD UNIT NAVIGATION - FINAL */
