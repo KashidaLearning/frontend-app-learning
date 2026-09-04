@@ -1882,10 +1882,6 @@ body.view-courseware .chromeless {
 }
 
 // Global font styling
-*:not(.fa):not(.glyphicon):not([class*="sorting"]):not([class*="icon-cc"]):not([class*="mce-"]) {
-  font-family: "DIN Next LT Arabic", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-  font-size: 18px !important;
-}
 
 
 // Rowad custom styling for learning app
@@ -1920,7 +1916,24 @@ body.view-courseware .chromeless {
 }
 
 // Global font styling
-*:not(.fa):not(.glyphicon):not([class*="sorting"]):not([class*="icon-cc"]):not([class*="mce-"]) {
-  font-family: "DIN Next LT Arabic", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-  font-size: 18px !important;
+
+/* ROWAD LEARNING CARD IMAGE DIRECTION */
+.pgn__card .pgn__card-wrapper-image-cap.horizontal .pgn__card-image-cap {
+  transform: scaleX(-1);
+}
+
+/* Keep the Learning interface on the Rowad font. */
+body {
+  font-family:
+    "Rowad Noto Sans",
+    Arial,
+    sans-serif !important;
+}
+
+html[dir="rtl"] body {
+  font-family:
+    "Rowad Noto Kufi Arabic",
+    "NotoNaskhArabic",
+    Arial,
+    sans-serif !important;
 }
