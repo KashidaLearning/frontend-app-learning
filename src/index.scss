@@ -1859,9 +1859,6 @@ html[dir="rtl"] body * {
   /* overflow: auto removed */
 }
 
-.col.col-12.col-md-8 {
-  padding: 0px !important;
-}
 
 #root main {
   padding: 10px !important;
@@ -1893,9 +1890,6 @@ body.view-courseware .chromeless {
   /* overflow: auto removed */
 }
 
-.col.col-12.col-md-8 {
-  padding: 0px !important;
-}
 
 #root main {
   padding: 10px !important;
@@ -1936,4 +1930,19 @@ html[dir="rtl"] body {
     "NotoNaskhArabic",
     Arial,
     sans-serif !important;
+}
+
+/* ROWAD LEARNING PAGE BACKGROUND AND MOBILE SPACING */
+body.view-in-course {
+  background-color: #fff !important;
+}
+
+body.view-in-course .course-wrapper {
+  background-color: #fff !important;
+}
+
+@media (max-width: 767.98px) {
+  .col.col-12.col-md-8 {
+    padding: 0 !important;
+  }
 }
