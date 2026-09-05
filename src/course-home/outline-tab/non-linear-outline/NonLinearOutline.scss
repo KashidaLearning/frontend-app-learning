@@ -76,6 +76,10 @@
     &--placeholder {
       height: 100%;
     }
+
+    &.completed {
+      filter: contrast(50%);
+    }
   }
 
   &__icon-badge {
