@@ -45,7 +45,11 @@ const UnitCard: React.FC<Props> = ({
     <Link to={unitUrl} className="unit-card d-block text-decoration-none">
       <div className="unit-card__image-wrapper position-relative">
         {imageUrl ? (
-          <img src={imageUrl} alt="" className="unit-card__image w-100" />
+          <img
+            src={imageUrl}
+            alt=""
+            className={`unit-card__image w-100${complete ? ' completed' : ''}`}
+          />
         ) : (
           <div className="unit-card__image unit-card__image--placeholder w-100" />
         )}
