@@ -1213,6 +1213,8 @@ body,
   margin: 48px auto 72px !important;
   background-color: #ffffff !important;
   border-radius: 48px;
+  font-size: 18px !important;
+  line-height: 1.5;
 }
 
 @media (max-width: 991.98px) {
@@ -1353,19 +1355,20 @@ border:0px !important
 /* ROWAD LEARNING PAGE UI UPDATE */
 
 /* Main Learning content spacing. */
-#root main {
-  padding: 35px !important;
-}
 
 /* Remove spacing and borders from course tabs. */
 #root #courseTabsNavigation {
   padding: 0 !important;
+  font-size: 18px !important;
+  line-height: 1.5;
 }
 
-.course-tabs-navigation,
-.course-tabs-navigation .nav.nav-underline-tabs {
-  border-bottom: 0 !important;
+#root #courseTabsNavigation .nav-link {
+  font-size: 18px !important;
+  line-height: 1.5;
+  font-weight: 400;
 }
+
 
 /* Course outline action button. */
 #root
@@ -1860,13 +1863,7 @@ html[dir="rtl"] body * {
 }
 
 
-#root main {
-  padding: 10px !important;
-}
 
-body {
-  background: white !important;
-}
 
 body.view-courseware .chromeless {
   background-color: white !important;
@@ -1885,13 +1882,7 @@ body.view-courseware .chromeless {
 }
 
 
-#root main {
-  padding: 10px !important;
-}
 
-body {
-  background: white !important;
-}
 
 body.view-courseware .chromeless {
   background-color: white !important;
@@ -1921,9 +1912,6 @@ html[dir="rtl"] body {
 }
 
 /* ROWAD LEARNING PAGE BACKGROUND AND MOBILE SPACING */
-body.view-in-course {
-  background-color: #fff !important;
-}
 
 body.view-in-course .course-wrapper {
   background-color: #fff !important;
