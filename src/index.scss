@@ -1918,3 +1918,17 @@ body.view-in-course .course-wrapper {
     padding: 0 !important;
   }
 }
+
+/* ROWAD LEARNING COURSE TAB TYPOGRAPHY AND SPACING */
+@media (min-width: 768px) {
+  [dir="rtl"] .course-tabs-navigation .nav.nav-underline-tabs a,
+  [dir="rtl"] .course-tabs-navigation .nav.nav-underline-tabs button {
+    margin: 0 0 0 10px;
+  }
+}
+
+#root #courseTabsNavigation .nav-link {
+  font-size: 16px !important;
+  font-weight: 400;
+  line-height: 1.5;
+}
