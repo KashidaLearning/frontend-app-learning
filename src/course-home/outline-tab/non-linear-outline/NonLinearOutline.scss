@@ -100,17 +100,15 @@
   // Completion checkmark -- top-left corner, mirroring __icon-badge's
   // bottom-left placement.
   &__complete-badge {
-    position: absolute;
-    inset-block-start: 0.5rem;
-    inset-inline-start: 0.5rem;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    // width: 2rem;
-    // height: 2rem;
+    background-color: #fff;
     border-radius: 50%;
-    background-color: #ffffff;
-    // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    display: flex;
+    inset-block-start: .5rem;
+    justify-content: center;
+    position: absolute;
+    left: 10px;
+    top: 10px;
   }
 
   &__duration-badge {
