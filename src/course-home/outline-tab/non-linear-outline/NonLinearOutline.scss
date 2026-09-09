@@ -158,3 +158,31 @@
   top: 10px !important;
   z-index: 2;
 }
+
+/* ROWAD UNIT CARD FIXED BADGE POSITIONS */
+
+/* Completion checkmark always stays on the physical left. */
+#root .unit-card__complete-badge {
+  inset-block-start: 10px !important;
+  inset-block-end: auto !important;
+  inset-inline-start: auto !important;
+  inset-inline-end: auto !important;
+  top: 10px !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: 10px !important;
+  z-index: 3;
+}
+
+/* Unit icon badge always stays on the physical right. */
+#root .unit-card__icon-badge {
+  inset-block-start: 10px !important;
+  inset-block-end: auto !important;
+  inset-inline-start: auto !important;
+  inset-inline-end: auto !important;
+  top: 10px !important;
+  right: 10px !important;
+  bottom: auto !important;
+  left: auto !important;
+  z-index: 2;
+}
