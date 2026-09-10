@@ -189,14 +189,19 @@
 
 /* ROWAD RTL BADGE POSITIONS */
 
-/*rtl:begin:ignore*/
-[dir="rtl"] #root .unit-card__complete-badge {
-  right: auto !important;
-  left: 10px !important;
-}
+/*
+ * These source values are intentionally reversed.
+ * The RTL compiler swaps left and right in the generated CSS.
+ */
 
-[dir="rtl"] #root .unit-card__icon-badge {
+/* Compiles to: left: 10px; right: auto; */
+[dir="rtl"] #root .unit-card__complete-badge {
   right: 10px !important;
   left: auto !important;
 }
-/*rtl:end:ignore*/
+
+/* Compiles to: right: 10px; left: auto; */
+[dir="rtl"] #root .unit-card__icon-badge {
+  right: auto !important;
+  left: 10px !important;
+}
