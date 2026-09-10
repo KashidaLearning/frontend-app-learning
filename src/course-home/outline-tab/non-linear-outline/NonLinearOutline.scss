@@ -190,18 +190,18 @@
 /* ROWAD RTL BADGE POSITIONS */
 
 /*
- * These source values are intentionally reversed.
- * The RTL compiler swaps left and right in the generated CSS.
+ * PostCSS adds the [dir] ancestor. Keep the RTL condition on the
+ * badge itself so the generated selector remains matchable.
  */
 
-/* Compiles to: left: 10px; right: auto; */
-[dir="rtl"] #root .unit-card__complete-badge {
+/* RTL compiler produces: left: 10px; right: auto. */
+#root .unit-card__complete-badge:dir(rtl) {
   right: 10px !important;
   left: auto !important;
 }
 
-/* Compiles to: right: 10px; left: auto; */
-[dir="rtl"] #root .unit-card__icon-badge {
+/* RTL compiler produces: right: 10px; left: auto. */
+#root .unit-card__icon-badge:dir(rtl) {
   right: auto !important;
   left: 10px !important;
 }
