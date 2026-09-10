@@ -186,3 +186,23 @@
   left: auto !important;
   z-index: 2;
 }
+
+/* ROWAD RTL PHYSICAL BADGE OVERRIDE */
+
+/* Completion checkmark: physical left. */
+html[dir='rtl'] #root .unit-card__complete-badge,
+[dir='rtl'] #root .unit-card__complete-badge {
+  inset-inline-start: auto !important;
+  inset-inline-end: auto !important;
+  right: auto !important;
+  left: 10px !important;
+}
+
+/* Unit icon: physical right. */
+html[dir='rtl'] #root .unit-card__icon-badge,
+[dir='rtl'] #root .unit-card__icon-badge {
+  inset-inline-start: auto !important;
+  inset-inline-end: auto !important;
+  right: 10px !important;
+  left: auto !important;
+}
