@@ -194,7 +194,9 @@ html[dir='rtl'] #root .unit-card__complete-badge,
 [dir='rtl'] #root .unit-card__complete-badge {
   inset-inline-start: auto !important;
   inset-inline-end: auto !important;
+  /* rtl:ignore */
   right: auto !important;
+  /* rtl:ignore */
   left: 10px !important;
 }
 
@@ -203,6 +205,8 @@ html[dir='rtl'] #root .unit-card__icon-badge,
 [dir='rtl'] #root .unit-card__icon-badge {
   inset-inline-start: auto !important;
   inset-inline-end: auto !important;
+  /* rtl:ignore */
   right: 10px !important;
+  /* rtl:ignore */
   left: auto !important;
 }
