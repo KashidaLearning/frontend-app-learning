@@ -210,3 +210,33 @@ html[dir='rtl'] #root .unit-card__icon-badge,
   /* rtl:ignore */
   left: auto !important;
 }
+
+/* ROWAD FIXED BADGE POSITIONS FOR BOTH LANGUAGES */
+
+/* English/LTR: completion physically left. */
+html[dir='ltr'] #root .unit-card__complete-badge,
+[dir='ltr'] #root .unit-card__complete-badge {
+  inset-inline-start: 10px !important;
+  inset-inline-end: auto !important;
+}
+
+/* Arabic/RTL: completion physically left. */
+html[dir='rtl'] #root .unit-card__complete-badge,
+[dir='rtl'] #root .unit-card__complete-badge {
+  inset-inline-start: auto !important;
+  inset-inline-end: 10px !important;
+}
+
+/* English/LTR: unit badge physically right. */
+html[dir='ltr'] #root .unit-card__icon-badge,
+[dir='ltr'] #root .unit-card__icon-badge {
+  inset-inline-start: auto !important;
+  inset-inline-end: 10px !important;
+}
+
+/* Arabic/RTL: unit badge physically right. */
+html[dir='rtl'] #root .unit-card__icon-badge,
+[dir='rtl'] #root .unit-card__icon-badge {
+  inset-inline-start: 10px !important;
+  inset-inline-end: auto !important;
+}
