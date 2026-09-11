@@ -1932,3 +1932,122 @@ body.view-in-course .course-wrapper {
   font-weight: 400;
   line-height: 1.5;
 }
+
+/* ROWAD LEARNING UI CONSISTENCY FIX */
+#root {
+  --rowad-learning-font:
+    "Rowad Noto Sans",
+    Arial,
+    sans-serif;
+}
+
+html[dir="rtl"] #root {
+  --rowad-learning-font:
+    "Rowad Noto Kufi Arabic",
+    "Rowad Noto Sans",
+    Arial,
+    sans-serif;
+}
+
+#root #courseTabsNavigation,
+#root #courseTabsNavigation *:not(svg):not(path),
+#root .course-wrapper,
+#root .course-wrapper *:not(svg):not(path):not(.fa):not(.fas):not(.far):not(.fab):not(.glyphicon):not(code):not(pre):not(kbd):not(samp):not(.MathJax),
+#root .course-outline-tab,
+#root .course-outline-tab *:not(svg):not(path):not(.fa):not(.fas):not(.far):not(.fab),
+#root .xblock,
+#root .xblock *:not(svg):not(path):not(code):not(pre):not(kbd):not(samp):not(.MathJax) {
+  font-family: var(--rowad-learning-font) !important;
+}
+
+/* Keep every Course/Progress/Discussion/About/Instructor tab consistent. */
+#root #courseTabsNavigation .nav-link,
+#root #courseTabsNavigation .nav-link:hover,
+#root #courseTabsNavigation .nav-link:focus,
+#root #courseTabsNavigation .nav-link:active,
+#root #courseTabsNavigation .nav-link.active {
+  font-family: var(--rowad-learning-font) !important;
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+}
+
+/* Remove unwanted subsection underlines. */
+#root .course-outline-tab a:not(.btn),
+#root .course-outline-tab a:not(.btn):hover,
+#root .course-outline-tab a:not(.btn):focus,
+#root .outline-sidebar a,
+#root .outline-sidebar a:hover,
+#root .outline-sidebar a:focus {
+  text-decoration: none !important;
+}
+
+/* Correct Arabic unit and subsection alignment. */
+html[dir="rtl"] #root .course-outline-tab,
+html[dir="rtl"] #root .course-outline-tab .pgn__card-header,
+html[dir="rtl"] #root .course-outline-tab .pgn__collapsible-trigger,
+html[dir="rtl"] #root .course-outline-tab .list-group-item,
+html[dir="rtl"] #root .course-outline-tab a,
+html[dir="rtl"] #root .outline-sidebar {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+html[dir="rtl"] #root .outline-sidebar .text-left {
+  text-align: right !important;
+}
+
+html[dir="rtl"] #root .outline-sidebar .ml-3 {
+  margin-right: 1rem !important;
+  margin-left: 0 !important;
+}
+
+html[dir="rtl"] #root .outline-sidebar .mr-auto {
+  margin-right: 0 !important;
+  margin-left: auto !important;
+}
+
+/* Restore visible completion/status icons. */
+#root .rowad-section-progress {
+  display: flex !important;
+  flex: 0 0 20px !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+#root .rowad-outline-completion-icon {
+  display: block !important;
+  width: 20px !important;
+  min-width: 20px !important;
+  height: 20px !important;
+  overflow: visible !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+#root .rowad-outline-completion-track {
+  fill: none !important;
+  stroke: #9ca3af !important;
+  stroke-width: 2 !important;
+}
+
+#root .rowad-outline-completion-progress {
+  fill: none !important;
+  stroke: #f08f62 !important;
+  stroke-width: 2 !important;
+}
+
+#root .rowad-outline-completion-complete {
+  fill: #056f6b !important;
+  stroke: #056f6b !important;
+}
+
+#root .rowad-outline-completion-icon.is-complete path {
+  fill: none !important;
+  stroke: #fff !important;
+  stroke-width: 2 !important;
+}
+
+/* Requested non-linear Learning unit badge spacing. */
+#root .unit-card__icon-badge {
+  padding: 8px !important;
+}

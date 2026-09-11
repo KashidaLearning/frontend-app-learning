@@ -10,7 +10,7 @@
     "extends @edx/browserslist-config"
   ],
   "scripts": {
-    "build": "fedx-scripts webpack",
+    "build": "node scripts/patch-rowad-arabic-translations.js && fedx-scripts webpack",
     "bundlewatch": "bundlewatch",
     "i18n_extract": "fedx-scripts formatjs extract",
     "lint": "fedx-scripts eslint --ext .js --ext .jsx --ext .ts --ext .tsx .",
