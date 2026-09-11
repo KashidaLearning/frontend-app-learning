@@ -2051,3 +2051,16 @@ html[dir="rtl"] #root .outline-sidebar .mr-auto {
 #root .unit-card__icon-badge {
   padding: 8px !important;
 }
+
+/* ROWAD COURSE CARD DESCRIPTION AND TITLE ALIGNMENT */
+#root span.course-description {
+  padding: 0 15px !important;
+}
+
+html[dir="rtl"] #root span.course-title {
+  text-align: right !important;
+}
+
+html[dir="ltr"] #root span.course-title {
+  text-align: left !important;
+}
