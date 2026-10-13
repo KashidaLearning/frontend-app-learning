@@ -1981,6 +1981,7 @@ html[dir="rtl"] #root {
   text-decoration: none !important;
 }
 
+/*! rtl:begin:ignore */
 /* Correct Arabic unit and subsection alignment. */
 html[dir="rtl"] #root .course-outline-tab,
 html[dir="rtl"] #root .course-outline-tab .pgn__card-header,
@@ -2005,6 +2006,8 @@ html[dir="rtl"] #root .outline-sidebar .mr-auto {
   margin-right: 0 !important;
   margin-left: auto !important;
 }
+
+/*! rtl:end:ignore */
 
 /* Restore visible completion/status icons. */
 #root .rowad-section-progress {
@@ -2057,6 +2060,7 @@ html[dir="rtl"] #root .outline-sidebar .mr-auto {
   padding: 0 15px !important;
 }
 
+/*! rtl:begin:ignore */
 html[dir="rtl"] #root span.course-title {
   text-align: right !important;
 }
@@ -2064,3 +2068,4 @@ html[dir="rtl"] #root span.course-title {
 html[dir="ltr"] #root span.course-title {
   text-align: left !important;
 }
+/*! rtl:end:ignore */
