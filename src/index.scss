@@ -2007,6 +2007,13 @@ html[dir="rtl"] #root .outline-sidebar .mr-auto {
   margin-left: auto !important;
 }
 
+/* Keep a gap between the completion circle and the title when a
+ * title block has both ml-3 and mr-auto (unit sidebar sections). */
+html[dir="rtl"] #root .outline-sidebar .ml-3.mr-auto {
+  margin-right: 1rem !important;
+  margin-left: auto !important;
+}
+
 /*! rtl:end:ignore */
 
 /* Restore visible completion/status icons. */
