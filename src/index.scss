@@ -2111,7 +2111,19 @@ html[dir="ltr"] #root span.course-title {
 
 #courseHome-outline .collapsible-basic > .collapsible-trigger > .collapsible-icon {
   grid-column: 2;
-  grid-row: 1 / span 2;
+  grid-row: 1;
+  align-self: center;
+}
+
+/* Same arrow column for sections and subsections: no extra side
+ * margin, same fixed width, arrow centred in it. */
+#courseHome-outline .collapsible-trigger > .collapsible-icon {
+  display: flex !important;
+  flex: 0 0 36px;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  margin: 0 !important;
 }
 
 #courseHome-outline .collapsible-basic > .collapsible-trigger > .row:first-child > .col-10 {
