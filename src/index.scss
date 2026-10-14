@@ -2077,30 +2077,72 @@ html[dir="ltr"] #root span.course-title {
 }
 /*! rtl:end:ignore */
 
-/* ROWAD COURSE HOME SUBSECTIONS (courses with unit lists) */
-
-/* One line between subsections: a line above each subsection
- * (including the first) and none after the last, where the
- * section's own bottom border already closes the group. */
-#courseHome-outline .collapsible-body .pgn_collapsible.collapsible-basic,
-#courseHome-outline .collapsible-body .pgn__collapsible.collapsible-basic {
-  border-bottom: 0 !important;
-  border-top:
+/* ROWAD COURSE HOME OUTLINE — EQUAL ROWS */
+/* One rhythm for every row: sections, subsections and units all
+ * use 16px text, black, 10px top/bottom padding. Only section
+ * titles are bold. Dividers: a line above every subsection
+ * (including the first), none after the last. */
+#courseHome-outline {
+  --rowad-ch-text: #000;
+  --rowad-ch-row-y: 10px;
+  --rowad-ch-indent: calc(20px + 1rem); /* icon + gap = title start */
+  --rowad-ch-line:
     var(--pgn-size-card-border-width, 1px)
     solid
-    var(--pgn-color-card-border-base, #e5e5e5) !important;
+    var(--pgn-color-card-border-base, #e5e5e5);
 }
 
-/* Title on one full-width line, the "Assessment" label under it,
- * and the expand arrow at the end of the row. No underline. */
+/* Sections. */
+#courseHome-outline > li > .pgn_collapsible,
+#courseHome-outline > li > .pgn__collapsible {
+  margin-bottom: 0 !important;
+}
+
+#courseHome-outline > li > .pgn_collapsible > .collapsible-trigger,
+#courseHome-outline > li > .pgn__collapsible > .collapsible-trigger {
+  padding: var(--rowad-ch-row-y) 0 !important;
+}
+
+#courseHome-outline > li > .pgn_collapsible > .collapsible-trigger .font-weight-bold,
+#courseHome-outline > li > .pgn__collapsible > .collapsible-trigger .font-weight-bold {
+  color: var(--rowad-ch-text) !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+}
+
+/* Subsection list inside an open section. */
+#courseHome-outline .collapsible-body > ol {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#courseHome-outline .collapsible-body > ol > li {
+  border-top: var(--rowad-ch-line) !important;
+}
+
+#courseHome-outline .collapsible-body > ol > li > div {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+/* Subsection rows without a unit list. */
+#courseHome-outline .collapsible-body > ol > li > div:not(:has(> .collapsible-basic)) {
+  padding: var(--rowad-ch-row-y) 0 !important;
+}
+
+/* Subsection rows with a unit list. */
+#courseHome-outline .collapsible-basic {
+  border: 0 !important;
+}
+
 #courseHome-outline .collapsible-basic > .collapsible-trigger {
   display: grid !important;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   column-gap: 1rem;
-  padding: 12px 0 !important;
-  color: var(--rowad-outline-navy, #1c274c) !important;
-  font-size: 15px !important;
+  padding: var(--rowad-ch-row-y) 0 !important;
+  color: var(--rowad-ch-text) !important;
   text-decoration: none !important;
 }
 
@@ -2115,6 +2157,33 @@ html[dir="ltr"] #root span.course-title {
   align-self: center;
 }
 
+#courseHome-outline .collapsible-basic > .collapsible-trigger > .row:first-child > .col-10 {
+  flex: 1 1 0;
+  max-width: none;
+}
+
+#courseHome-outline .collapsible-basic > .collapsible-body {
+  padding: 0 !important;
+}
+
+/* Subsection titles: 16px, black, regular weight, no underline. */
+#courseHome-outline .collapsible-body .col-10,
+#courseHome-outline .collapsible-body .col-10 span,
+#courseHome-outline .collapsible-body .col-10 a,
+#courseHome-outline .collapsible-body .col-10 a:hover,
+#courseHome-outline .collapsible-body .col-10 a:focus {
+  color: var(--rowad-ch-text) !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  text-decoration: none !important;
+}
+
+/* "Assessment" label under a subsection title. */
+#courseHome-outline .collapsible-body small {
+  font-size: 12px !important;
+  color: #6b7280 !important;
+}
+
 /* Same arrow column for sections and subsections: no extra side
  * margin, same fixed width, arrow centred in it. */
 #courseHome-outline .collapsible-trigger > .collapsible-icon {
@@ -2126,41 +2195,26 @@ html[dir="ltr"] #root span.course-title {
   margin: 0 !important;
 }
 
-#courseHome-outline .collapsible-basic > .collapsible-trigger > .row:first-child > .col-10 {
-  flex: 1 1 0;
-  max-width: none;
-}
-
-#courseHome-outline .collapsible-basic > .collapsible-trigger small {
-  font-size: 12px !important;
-  color: #6b7280 !important;
-}
-
-/* Units inside an open subsection: a tidy bulleted list. */
+/* Units: no bullets, lined up under the subsection title text,
+ * 16px, black, regular weight, same row padding. */
 #courseHome-outline .subsection-units-list {
-  margin: 4px 0 8px !important;
-  padding-inline-start: 2.75rem !important;
-  list-style-type: disc !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  padding-inline-start: var(--rowad-ch-indent) !important;
+  list-style: none !important;
 }
 
 #courseHome-outline .subsection-units-list li {
-  display: list-item;
-  padding: 4px 0 !important;
-  font-size: 14px !important;
-  line-height: 1.6 !important;
+  padding: var(--rowad-ch-row-y) 0 !important;
+  font-size: 16px !important;
+  line-height: 1.5 !important;
 }
 
-#courseHome-outline .subsection-units-list li::marker {
-  color: var(--rowad-outline-orange, #da8259);
-}
-
-#courseHome-outline .subsection-units-list li a {
-  color: var(--rowad-outline-green, #18504d) !important;
-  font-size: 14px !important;
-  text-decoration: none !important;
-}
-
+#courseHome-outline .subsection-units-list li a,
 #courseHome-outline .subsection-units-list li a:hover,
 #courseHome-outline .subsection-units-list li a:focus {
-  color: var(--rowad-outline-orange, #da8259) !important;
+  color: var(--rowad-ch-text) !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  text-decoration: none !important;
 }
