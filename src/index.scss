@@ -2080,7 +2080,9 @@ html[dir="ltr"] #root span.course-title {
 #courseHome-outline {
   --rowad-ch-text: #000;
   --rowad-ch-row-y: 10px;
-  --rowad-ch-indent: calc(20px + 1rem); /* icon + gap = title start */
+  --rowad-ch-arrow: 36px;
+  --rowad-ch-gap: 8px;
+  --rowad-ch-indent: calc(var(--rowad-ch-arrow) + var(--rowad-ch-gap)); /* arrow + gap = title start */
   --rowad-ch-line:
     var(--pgn-size-card-border-width, 1px)
     solid
@@ -2133,21 +2135,21 @@ html[dir="ltr"] #root span.course-title {
 
 #courseHome-outline .collapsible-basic > .collapsible-trigger {
   display: grid !important;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: var(--rowad-ch-arrow) minmax(0, 1fr);
   align-items: center;
-  column-gap: 1rem;
+  column-gap: var(--rowad-ch-gap);
   padding: var(--rowad-ch-row-y) 0 !important;
   color: var(--rowad-ch-text) !important;
   text-decoration: none !important;
 }
 
 #courseHome-outline .collapsible-basic > .collapsible-trigger > * {
-  grid-column: 1;
+  grid-column: 2;
   min-width: 0;
 }
 
 #courseHome-outline .collapsible-basic > .collapsible-trigger > .collapsible-icon {
-  grid-column: 2;
+  grid-column: 1;
   grid-row: 1;
   align-self: center;
 }
@@ -2212,4 +2214,68 @@ html[dir="ltr"] #root span.course-title {
   font-size: 16px !important;
   font-weight: 400 !important;
   text-decoration: none !important;
+}
+
+/* Arrow beside the title, completion tick at the far end of the row.
+ * English:  [arrow] Title ............ [tick]
+ * Arabic:   [tick] ............ Title [arrow]
+ * Uses order and logical margins only, so it mirrors in Arabic. */
+
+/* Sections: arrow first, then the title row. */
+#courseHome-outline > li > .pgn_collapsible > .collapsible-trigger,
+#courseHome-outline > li > .pgn__collapsible > .collapsible-trigger {
+  gap: var(--rowad-ch-gap);
+}
+
+#courseHome-outline > li > .pgn_collapsible > .collapsible-trigger > .collapsible-icon,
+#courseHome-outline > li > .pgn__collapsible > .collapsible-trigger > .collapsible-icon {
+  order: -1;
+}
+
+#courseHome-outline > li > .pgn_collapsible > .collapsible-trigger > :not(.collapsible-icon),
+#courseHome-outline > li > .pgn__collapsible > .collapsible-trigger > :not(.collapsible-icon) {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Inside every title row (sections and subsections): title text first,
+ * tick pushed to the far end. */
+#courseHome-outline .collapsible-trigger .row > .col-auto {
+  order: 2;
+  margin-inline-start: auto !important;
+}
+
+#courseHome-outline .collapsible-trigger .row > .col-7,
+#courseHome-outline .collapsible-trigger .row > .col-10 {
+  order: 1;
+  flex: 1 1 auto;
+  max-width: none;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* "Assessment" label lines up under the title text. */
+#courseHome-outline .collapsible-basic > .collapsible-trigger > .row.ml-3 {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+#courseHome-outline .collapsible-basic > .collapsible-trigger small {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Subsections without a unit list have no arrow: keep their title in
+ * the same column as the others. */
+#courseHome-outline .collapsible-body > ol > li > div:not(:has(> .collapsible-basic)) {
+  padding-inline-start: var(--rowad-ch-indent) !important;
+}
+
+#courseHome-outline .collapsible-body > ol > li > div:not(:has(> .collapsible-basic)) .row.ml-3 {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
