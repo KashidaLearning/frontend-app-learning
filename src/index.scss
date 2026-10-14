@@ -2080,8 +2080,8 @@ html[dir="ltr"] #root span.course-title {
 #courseHome-outline {
   --rowad-ch-text: #000;
   --rowad-ch-row-y: 10px;
-  --rowad-ch-arrow: 36px;
-  --rowad-ch-gap: 8px;
+  --rowad-ch-arrow: 20px;
+  --rowad-ch-gap: 1rem;
   --rowad-ch-indent: calc(var(--rowad-ch-arrow) + var(--rowad-ch-gap)); /* arrow + gap = title start */
   --rowad-ch-line:
     var(--pgn-size-card-border-width, 1px)
@@ -2185,10 +2185,10 @@ html[dir="ltr"] #root span.course-title {
  * margin, same fixed width, arrow centred in it. */
 #courseHome-outline .collapsible-trigger > .collapsible-icon {
   display: flex !important;
-  flex: 0 0 36px;
+  flex: 0 0 var(--rowad-ch-arrow);
   justify-content: center;
   align-items: center;
-  width: 36px;
+  width: var(--rowad-ch-arrow);
   margin: 0 !important;
 }
 
@@ -2278,4 +2278,10 @@ html[dir="ltr"] #root span.course-title {
   margin-right: 0 !important;
   padding-left: 0 !important;
   padding-right: 0 !important;
+}
+
+/* The arrow button fits the tick's old 20px slot. */
+#courseHome-outline .collapsible-trigger .collapsible-icon > button {
+  width: var(--rowad-ch-arrow) !important;
+  min-width: var(--rowad-ch-arrow) !important;
 }
