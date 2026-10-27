@@ -1,4 +1,4 @@
-import { getLocale, isRtl, useIntl } from '@edx/frontend-platform/i18n';
+import { isRtl, useIntl } from '@edx/frontend-platform/i18n';
 import {
   DataTable,
   Icon,
@@ -34,7 +34,7 @@ const GradeSummaryTableFooter = () => {
   const bgColor = isPassing ? 'bg-success-100' : 'bg-warning-100';
   const totalGrade = (percent * 100).toFixed(0);
 
-  const isLocaleRtl = isRtl(getLocale());
+  const isLocaleRtl = isRtl(intl.locale);
 
   return (
     <DataTable.TableFooter className={`border-top border-primary ${bgColor}`}>

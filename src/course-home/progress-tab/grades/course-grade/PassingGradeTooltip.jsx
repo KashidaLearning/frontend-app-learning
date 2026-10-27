@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 
-import { getLocale, isRtl, useIntl } from '@edx/frontend-platform/i18n';
+import { isRtl, useIntl } from '@edx/frontend-platform/i18n';
 import { OverlayTrigger, Popover } from '@openedx/paragon';
 
 import messages from '../messages';
 
 const PassingGradeTooltip = ({ passingGrade, tooltipClassName }) => {
   const intl = useIntl();
-  const isLocaleRtl = isRtl(getLocale());
+  const isLocaleRtl = isRtl(intl.locale);
 
   let passingGradeDirection = passingGrade < 50 ? '' : '-';
 

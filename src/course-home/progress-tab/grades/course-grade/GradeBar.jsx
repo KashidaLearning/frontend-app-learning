@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import { getLocale, isRtl, useIntl } from '@edx/frontend-platform/i18n';
+import { isRtl, useIntl } from '@edx/frontend-platform/i18n';
 import { useContextId } from '../../../../data/hooks';
 import { useModel } from '../../../../generic/model-store';
 import CurrentGradeTooltip from './CurrentGradeTooltip';
@@ -24,7 +24,7 @@ const GradeBar = ({ passingGrade }) => {
 
   const lockedTooltipClassName = gradesFeatureIsFullyLocked ? 'locked-overlay' : '';
 
-  const adjustedRtlStyle = (percentOffest) => (isRtl(getLocale()) ? { transform: `translateX(${100 - percentOffest}%)` } : {});
+  const adjustedRtlStyle = (percentOffest) => (isRtl(intl.locale) ? { transform: `translateX(${100 - percentOffest}%)` } : {});
 
   return (
     <div className="col-12 col-sm-6 align-self-center p-0">

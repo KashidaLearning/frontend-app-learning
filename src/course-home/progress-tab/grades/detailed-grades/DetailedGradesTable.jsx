@@ -1,4 +1,4 @@
-import { getLocale, isRtl, useIntl } from '@edx/frontend-platform/i18n';
+import { isRtl, useIntl } from '@edx/frontend-platform/i18n';
 import { DataTable } from '@openedx/paragon';
 import { useContextId } from '../../../../data/hooks';
 
@@ -15,7 +15,7 @@ const DetailedGradesTable = () => {
     sectionScores,
   } = useModel('progress', courseId);
 
-  const isLocaleRtl = isRtl(getLocale());
+  const isLocaleRtl = isRtl(intl.locale);
   return (
     sectionScores.map((chapter) => {
       const subsectionScores = chapter.subsections.filter(

@@ -1,4 +1,4 @@
-import { getLocale, isRtl, useIntl } from '@edx/frontend-platform/i18n';
+import { isRtl, useIntl } from '@edx/frontend-platform/i18n';
 import { useContextId } from '../../../data/hooks';
 import { useModel } from '../../../generic/model-store';
 
@@ -24,7 +24,7 @@ const CompletionDonutChart = () => {
   const lockedPercentage = lockedCount ? Number(((lockedCount / numTotalUnits) * 100).toFixed(0)) : 0;
   const incompletePercentage = 100 - completePercentage - lockedPercentage;
 
-  const isLocaleRtl = isRtl(getLocale());
+  const isLocaleRtl = isRtl(intl.locale);
 
   return (
     <>

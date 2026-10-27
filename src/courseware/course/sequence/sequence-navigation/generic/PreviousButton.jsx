@@ -5,7 +5,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from '@openedx/paragon/icons';
-import { isRtl, getLocale } from '@edx/frontend-platform/i18n';
+import { isRtl, useIntl } from '@edx/frontend-platform/i18n';
 
 const PreviousButton = ({
   onClick,
@@ -16,13 +16,14 @@ const PreviousButton = ({
   isFirstUnit,
   isAtTop,
 }) => {
+  const intl = useIntl();
   const navigate = useNavigate();
   const disabled = isFirstUnit;
   const { pathname } = useLocation();
   const navLink = pathname.startsWith('/preview') ? `/preview${previousLink}` : previousLink;
 
   const getPrevArrow = () => (
-    isRtl(getLocale()) ? ChevronRight : ChevronLeft
+    isRtl(intl.locale) ? ChevronRight : ChevronLeft
   );
 
   const prevArrow = getPrevArrow();

@@ -5,7 +5,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from '@openedx/paragon/icons';
-import { isRtl, getLocale } from '@edx/frontend-platform/i18n';
+import { isRtl, useIntl } from '@edx/frontend-platform/i18n';
 
 import UnitNavigationEffortEstimate from '../UnitNavigationEffortEstimate';
 
@@ -19,6 +19,7 @@ const NextButton = ({
   hasEffortEstimate,
   isAtTop,
 }) => {
+  const intl = useIntl();
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const navLink = pathname.startsWith('/preview') ? `/preview${nextLink}` : nextLink;
@@ -29,7 +30,7 @@ const NextButton = ({
   ) : buttonText;
 
   const getNextArrow = () => (
-    isRtl(getLocale()) ? ChevronLeft : ChevronRight
+    isRtl(intl.locale) ? ChevronLeft : ChevronRight
   );
 
   const nextArrow = getNextArrow();

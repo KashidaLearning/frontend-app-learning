@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { getLocale, isRtl, useIntl } from '@edx/frontend-platform/i18n';
+import { isRtl, useIntl } from '@edx/frontend-platform/i18n';
 
 import messages from '../messages';
 
 const ProblemScoreDrawer = ({ problemScores, subsection }) => {
   const intl = useIntl();
-  const isLocaleRtl = isRtl(getLocale());
+  const isLocaleRtl = isRtl(intl.locale);
 
   const scoreLabel = subsection.hasGradedAssignment ? messages.gradedScoreLabel : messages.practiceScoreLabel;
 

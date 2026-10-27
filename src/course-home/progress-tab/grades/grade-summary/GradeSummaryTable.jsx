@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import { getLocale, isRtl, useIntl } from '@edx/frontend-platform/i18n';
+import { isRtl, useIntl } from '@edx/frontend-platform/i18n';
 import { DataTable } from '@openedx/paragon';
 import { Lock } from '@openedx/paragon/icons';
 import { useContextId } from '../../../../data/hooks';
@@ -77,7 +77,7 @@ const GradeSummaryTable = ({ setAllOfSomeAssignmentTypeIsLocked }) => {
     }
 
     const locked = !gradesFeatureIsFullyLocked && hasNoAccessToAssignmentsOfType(assignmentType);
-    const isLocaleRtl = isRtl(getLocale());
+    const isLocaleRtl = isRtl(intl.locale);
 
     let weightedGradeDisplay = `${getGradePercent(weightedGrade)}${isLocaleRtl ? '\u200f' : ''}%`;
     let gradeDisplay = `${getGradePercent(averageGrade)}${isLocaleRtl ? '\u200f' : ''}%`;

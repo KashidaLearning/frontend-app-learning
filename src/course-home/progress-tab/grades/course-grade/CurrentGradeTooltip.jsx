@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import { getLocale, isRtl, useIntl } from '@edx/frontend-platform/i18n';
+import { isRtl, useIntl } from '@edx/frontend-platform/i18n';
 import { OverlayTrigger, Popover } from '@openedx/paragon';
 import { useContextId } from '../../../../data/hooks';
 
@@ -24,7 +24,7 @@ const CurrentGradeTooltip = ({ tooltipClassName }) => {
 
   let currentGradeDirection = currentGrade < 50 ? '' : '-';
 
-  const isLocaleRtl = isRtl(getLocale());
+  const isLocaleRtl = isRtl(intl.locale);
 
   const hasHiddenGrades = assignmentTypeGradeSummary.some((assignmentType) => assignmentType.hasHiddenContribution !== 'none');
 

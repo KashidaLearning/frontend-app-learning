@@ -24,7 +24,7 @@ const DiscussionsWidget = () => {
 
   return (
     <iframe
-      src={`${discussionsUrl}?inContextSidebar`}
+      src={`${discussionsUrl}?inContextSidebar&locale=${intl.locale}`}
       className={classNames('d-flex w-100 flex-fill border border-light-400 rounded-sm', {
         'vh-100': !shouldDisplayFullScreen,
         'min-height-700': shouldDisplayFullScreen,
